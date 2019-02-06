@@ -1,0 +1,19 @@
+body {
+  background: #cccccc;
+  color: #2d2d2d; }
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  line-height: 23px; }
+  .wrapper > * {
+    grid-column: 2 / -2; }
+  .wrapper footer {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end; }
+  .wrapper .social a {
+    color: #2d2d2d; }
+
