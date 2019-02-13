@@ -1,4 +1,4 @@
-smarquez.me source
+Build status: [![CircleCI](https://circleci.com/gh/smarquez1/smarquez1.github.io.svg?style=svg&circle-token=517827038155b85cf268171d7847a1b75936d334)](https://circleci.com/gh/smarquez1/smarquez1.github.io)
 
 ## Tasks
 
