@@ -1,7 +1,7 @@
-import Typed from 'typed.js'
-import feather from 'feather-icons'
+import Typed from 'typed.js';
+import feather from 'feather-icons';
 
-feather.replace()
+feather.replace();
 
 const options = {
   strings: ['Web Developer based in Spain', 'Software Engineer from Argentina'],
@@ -9,8 +9,8 @@ const options = {
   smartDelay: 200,
   backDelay: 5000,
   loop: true,
-  showCursor: true
-}
+  showCursor: true,
+};
 
-const introductoryText = document.querySelector('#introduction > .typed') 
-const typed = new Typed(introductoryText, options)
+const introductoryText = document.querySelector('#introduction > .typed');
+Typed(introductoryText, options);
