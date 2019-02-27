@@ -61,11 +61,6 @@ module.exports = {
             }
           },
           {
-            // Use PostCSS to minify and autoprefix. This loader
-            // uses the configuration in `postcss.config.js`
-            loader: 'postcss-loader'
-          },
-          {
             // Adds support for Sass files, if using Less, then
             // use the less-loader
             loader: 'sass-loader'

@@ -1,33 +1,18 @@
-@import '~normalize-scss/sass/_normalize.scss';
+@import '~sanitize.css';
 @import 'variables.scss';
 
 body {
   background: $foreground;
   color: $background;
+  height: 100vh;
+  margin: 0;
 }
 
-.wrapper {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto 1fr auto;
-  line-height: 23px;
+main {
+}
 
-  & > * { grid-column: 2 / -2; }
+header {
+}
 
-  header {
-    h1 {
-      // font-size: 3.5em;
-    }
-  }
-
-  footer {
-    height: 50px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .social a {
-    color: $background;
-  }
+footer {
 }
