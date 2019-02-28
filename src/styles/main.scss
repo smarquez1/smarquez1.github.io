@@ -9,6 +9,12 @@ body {
   height: 100vh;
 }
 
-section { display:none; }
+// Hide sections until targeted
+section {
+  display:none;
 
-section:target { display:block; }
+  &:target {
+    display:block;
+  }
+}
+

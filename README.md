@@ -8,8 +8,9 @@ Build status: [![CircleCI](https://circleci.com/gh/smarquez1/smarquez1.github.io
 * `yarn build`
   Compiles assets through webpack
 
-* `yarn deploy`
-  Pushes compiled website to the `master` branch.
+## Deploying
+
+Move to `/public`, commit and push.
 
 ### Sources
 

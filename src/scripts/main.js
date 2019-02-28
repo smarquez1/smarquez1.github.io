@@ -1,15 +1,19 @@
 import Typed from 'typed.js';
 
-new Typed('#intro .typed', {
-  strings: ['Web Developer based in Spain', 'Software Engineer from Argentina'],
-  typeSpeed: 40,
-  smartDelay: 200,
-  backDelay: 5000,
-  loop: true,
-  showCursor: true,
-});
+function init() {
+  // Initialize typed.js
+  new Typed('#intro .typed', {
+    strings: ['Web Developer based in Spain'],
+    typeSpeed: 40,
+    smartDelay: 200,
+    backDelay: 5000,
+    loop: false,
+  });
 
-// Show #intro if URL contains no anchor
-if (window.location.hash.length === 0) {
-  window.location.href = '#intro'
+  // Target #intro section if URL contains no anchor
+  if (window.location.hash.length === 0) {
+    window.location.href = '#intro'
+  }
 }
+
+init()
