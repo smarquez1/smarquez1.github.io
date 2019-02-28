@@ -70,7 +70,7 @@ module.exports = {
       {
         // Adds support to load images in your CSS rules. It looks
         // for .png, .jpg, .jpeg and .gif
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
             loader: 'file-loader',
