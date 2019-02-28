@@ -41,6 +41,7 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "bootstrap": "^4.3.1",
     "typed.js": "^2.0.10"
   },
