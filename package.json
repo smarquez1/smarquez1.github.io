@@ -21,10 +21,13 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.8",
     "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "file-loader": "^3.0.1",
     "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.5.0",
@@ -35,14 +38,10 @@
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-scss": "^3.5.2",
     "webpack": "^4.29.1",
-    "webpack-cli": "^3.2.3",
-    "babel-eslint": "^10.0.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0"
+    "webpack-cli": "^3.2.3"
   },
   "dependencies": {
-    "feather-icons": "^4.17.0",
-    "sanitize.css": "^8.0.0",
+    "bootstrap": "^4.3.1",
     "typed.js": "^2.0.10"
   },
   "eslintConfig": {

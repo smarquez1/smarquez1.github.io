@@ -1,7 +1,4 @@
 import Typed from 'typed.js';
-import feather from 'feather-icons';
-
-feather.replace();
 
 new Typed('#intro .typed', {
   strings: ['Web Developer based in Spain', 'Software Engineer from Argentina'],
@@ -12,21 +9,7 @@ new Typed('#intro .typed', {
   showCursor: true,
 });
 
-// Navbar links
-const linkIntro = document.querySelector('#link-intro')
-const linkAbout = document.querySelector('#link-about')
-
-const sectionIntro = document.querySelector('#intro')
-const sectionAbout = document.querySelector('#about')
-
-sectionAbout.style.display = 'none'
-
-linkAbout.onclick = () => {
-  sectionIntro.style.display = 'none';
-  sectionAbout.style.display = '';
-};
-
-linkIntro.onclick = () => {
-  sectionIntro.style.display = '';
-  sectionAbout.style.display = 'none';
-};
+// Show #intro if URL contains no anchor
+if (window.location.hash.length === 0) {
+  window.location.href = '#intro'
+}
