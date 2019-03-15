@@ -1,7 +1,22 @@
 import Typed from 'typed.js';
 
+function randomColor(colors) {
+  return colors[Math.floor(Math.random()*colors.length)];
+}
+
+function colorize() {
+  const style = getComputedStyle(document.body)
+
+  const dark = style.getPropertyValue('--dark')
+  const blue = style.getPropertyValue('--blue')
+  const green = style.getPropertyValue('--green')
+  const purple = style.getPropertyValue('--purple')
+  const colors = [dark, blue, green, purple]
+
+  document.documentElement.style.setProperty('--background', randomColor(colors));
+}
+
 function init() {
-  // Initialize typed.js
   new Typed('#intro .typed', {
     strings: ['Web Developer based in Spain'],
     typeSpeed: 40,

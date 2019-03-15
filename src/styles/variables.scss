@@ -1,11 +1,23 @@
-$background: #4d4d4d;
-$foreground: #fefefe;
-$comment:    #999999;
+// COLORS
+$dark: #4d4d4d;
+$bright: #fefefe;
+$blue: #0B9EFF;
+$green: #3FC2CE;
+$purple: #5475E0;
 
-$red:        #f2777a;
-$orange:     #f99157;
-$yellow:     #ffcc66;
-$green:      #99cc99;
-$aqua:       #66cccc;
-$blue:       #6699cc;
-$purple: #cc99cc;
+:root {
+  --background: #{$dark};
+  --foreground: #{$bright};
+  --bright: #{$bright};
+  --dark: #{$dark};
+  --blue: #{$blue};
+  --green: #{$green};
+  --purple: #{$purple};
+}
+
+// FONTS
+$sans-font:'Open Sans', sans-serif;
+$mono-font: 'Roboto Slab', monospace;
+
+// Media breakpoints
+$break-mobile: 800px;

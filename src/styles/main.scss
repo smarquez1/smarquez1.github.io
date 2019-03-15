@@ -1,20 +1,139 @@
 @import '~animate.css/animate.css';
 @import '~bootstrap/scss/bootstrap-reboot.scss';
+@import '~bootstrap/scss/_utilities.scss';
 @import '~bootstrap/scss/bootstrap-grid.scss';
 @import 'variables.scss';
 
 body {
-  background: $foreground;
-  color: $background;
+  // background: var(--background);
+  animation: colorchange 100s linear infinite; /* animation-name followed by duration in seconds*/
+  color: var(--foreground);
+  font-family: $sans-font;
   height: 100vh;
-}
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
 
-// Hide sections until targeted
-section {
-  display:none;
+  a {
+    text-decoration: none;
+    color: var(--foreground);
 
-  &:target {
-    display:block;
+    &:hover {
+      color: var(--foreground);
+    }
   }
 }
 
+#triangle {
+  position: absolute;
+  width: 36rem;
+  right: -5%; 
+  top: -5%;
+  transform: rotate(-155deg);
+  z-index: -1;
+
+  @media (max-width: $break-mobile) {
+    // width: 40vh;
+    visibility: hidden;
+  }
+}
+
+header {
+  font-family: $mono-font;
+  height: 8rem;
+
+  .row{
+    align-items: center;
+    height: 100%;
+  }
+
+  a {
+    color: var(--background);
+
+    &:hover {
+      color: var(--background);
+    }
+  }
+
+  @media (max-width: $break-mobile) {
+    a {
+      color: var(--foreground);
+
+      &:hover {
+        color: var(--foreground);
+      }
+    }
+  }
+  #brand { width: 4.125rem; }
+}
+
+main {
+  section {
+    flex-grow: 2;
+    display: flex;
+
+    // Hide sections until targeted
+    display: none;
+    &:target { display:block; }
+    height: 100%;
+
+    font-family: $sans-font;
+
+    &#intro {
+      p {
+        font-weight: 600;
+        width:100%;
+        font-size: 3rem;
+        text-transform: uppercase;
+      }
+
+      .social {
+        a:hover {
+          text-decoration: none;
+        }
+
+        img {
+          width: 2.5rem;
+          margin-right: 2.5rem; 
+        }
+      }
+    }
+
+    &#about {
+      font-size: 1.625rem;
+
+      a {
+        font-family: $mono-font;
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+footer {
+  font-family: $mono-font;
+  text-transform: uppercase;
+  height: 2.5rem;
+}
+
+// Color change animation
+@keyframes colorchange {
+  0%   {
+    background: var(--dark);
+  }
+  25%  {
+    background: var(--green);
+  }
+  50%  {
+    background: var(--blue);
+  }
+  75%  {
+    background: var(--purple);
+  }
+  100% {
+    background: var(--dark);
+  }
+}
