@@ -5,45 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="./assets/images/logo-bright.svg">
     <title>Sergio D. Márquez</title>
 
-    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/app.css">
   </head>
 
-  <body>
+  <body class="container-fluid">
+    <img src="./assets/images/Triangle.svg" id="triangle" alt="triangle">
     <header>
-      <a href="#intro" id="link-intro">
-        <img src="./assets/images/logo.svg" alt="logo"></img>
-      </a>
+      <div class="row">
+        <div class="offset-lg-1 col-lg-5">
+          <a href="#intro" id="link-intro">
+            <img id="brand" src="./assets/images/logo-bright.svg" alt="logo"></img>
+          </a>
+        </div>
 
-      <a href="#about" id="link-about">INFO</a>
+        <div class="col-lg-5 text-right">
+          <a href="#about" id="link-about">INFO</a>
+        </div>
+      </div>
     </header>
 
     <main>
-      <section id="intro">
-        <h1>
-          Sergio Marquez is a <span class="typed"></span>
-        </h1>
+      <section id="intro" class="animated fadeIn align-middle">
+        <div class="row">
+          <div class="col-lg-5 offset-lg-1">
+            <p id="description">
+              Sergio Marquez is a
+              <br>
+              <span class="typed"></span>
+            </p>
 
-        <div class="social">
-          <a href="twitter.com/__smarquez" data-feather="twitter"></a>
-          <a data-feather="github" href="github.com/smarquez1"></a>
-          <a href="linkedin.com/in/marquezsd" data-feather="linkedin"></a>
-          <a href="mailto:hello@smarquez.me" data-feather="mail"></a>
+            <div class="social">
+              <a href="https://twitter.com/__smarquez">
+                <img src="./assets/images/twitter-logo-silhouette.svg" alt="">
+              </a>
+              <a href="https://github.com/smarquez1">
+                <img src="./assets/images/github-logo.svg" alt="">
+              </a>
+              <!-- <a href="https://linkedin.com/in/marquezsd"> -->
+              <!--   <img src="./assets/images/linkedin-logo.svg" alt=""> -->
+              <!-- </a> -->
+              <a href="mailto:hello@smarquez.me">
+                <img src="./assets/images/close-envelope.svg" alt="">
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="about">
-        <p>
-          Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
-        </p>
+      <section id="about" class="animated fadeIn">
+        <div class="row">
+          <div class="col-lg-5 offset-lg-1">
+            <p>
+              I'm a passionate software developer, working mostly on Ruby, but doing some JS too.
+              I'm a big fan of clean code, best software practices and learning new stuff.
+            </p>
+            <a href="http://bit.ly/smarquez-cv">resume</a>
+          </div>
+        </div>
     </main>
 
     <footer>
-      <a href="github.com/smarquez1/smarquez1.github.io">(src)</a>
+      <div class="row">
+        <div class="col-lg-11 text-right">
+          [<a href="https://github.com/smarquez1/smarquez1.github.io/tree/src">src</a>]
+        </div>
+      </div>
     </footer>
-    <script src="./assets/scripts/bundle.js"></script>
+
+    <script src="./assets/scripts/app.js"></script>
   </body>
 
 </html>
