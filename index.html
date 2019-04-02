@@ -76,6 +76,17 @@
     </footer>
 
     <script src="./assets/scripts/app.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137513189-1"></script>
+    <script>
+      // if (env.NODE_ENV == 'production') {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137513189-1');
+    </script>
   </body>
 
 </html>
