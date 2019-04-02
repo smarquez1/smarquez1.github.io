@@ -7767,19 +7767,12 @@ body {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: space-between; }
   body a {
     text-decoration: none;
     color: var(--foreground); }
     body a:hover {
       color: var(--foreground); }
-  @media (max-width: 720px) {
-    body {
-      font-size: 14px; } }
-
-.row {
-  width: 100%;
-  height: 100%; }
 
 #triangle {
   position: absolute;
@@ -7788,7 +7781,7 @@ body {
   top: -5%;
   transform: rotate(-155deg);
   z-index: -1; }
-  @media (max-width: 720px) {
+  @media (max-width: 800px) {
     #triangle {
       visibility: hidden; } }
 
@@ -7796,12 +7789,13 @@ header {
   font-family: "Roboto Slab", monospace;
   height: 8rem; }
   header .row {
-    align-items: center; }
+    align-items: center;
+    height: 100%; }
   header a {
     color: var(--background); }
     header a:hover {
       color: var(--background); }
-  @media (max-width: 720px) {
+  @media (max-width: 800px) {
     header a {
       color: var(--foreground); }
       header a:hover {
@@ -7809,61 +7803,36 @@ header {
   header #brand {
     width: 4.125rem; }
 
-main {
-  flex-grow: 2; }
-  main section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    display: none; }
-    main section:target {
-      display: flex; }
-    @media (max-width: 720px) {
-      main section#intro #description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; } }
-    main section#intro #description #intro-text {
-      flex-grow: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center; }
-      main section#intro #description #intro-text p {
-        font-weight: 600;
-        font-size: 3rem;
-        text-transform: uppercase; }
-        @media (max-width: 720px) {
-          main section#intro #description #intro-text p {
-            font-size: 1.571rem;
-            text-align: center; } }
-    main section#intro #description .social a:not(:last-child) {
-      margin-right: 2.5rem; }
-    main section#intro #description .social a:hover {
-      text-decoration: none; }
-    main section#intro #description .social img {
-      width: 2.5rem; }
-    main section#about {
-      font-size: 1.625rem; }
-      @media (max-width: 720px) {
-        main section#about {
-          font-size: 0.875rem; } }
-      main section#about a {
-        font-family: "Roboto Slab", monospace;
-        font-size: 1.5rem;
-        font-weight: 800;
-        text-transform: uppercase; }
-        @media (max-width: 720px) {
-          main section#about a {
-            font-size: 0.875rem; } }
+main section {
+  flex-grow: 2;
+  display: flex;
+  display: none;
+  height: 100%;
+  font-family: "Open Sans", sans-serif; }
+  main section:target {
+    display: block; }
+  main section#intro p {
+    font-weight: 600;
+    width: 100%;
+    font-size: 3rem;
+    text-transform: uppercase; }
+  main section#intro .social a:hover {
+    text-decoration: none; }
+  main section#intro .social img {
+    width: 2.5rem;
+    margin-right: 2.5rem; }
+  main section#about {
+    font-size: 1.625rem; }
+    main section#about a {
+      font-family: "Roboto Slab", monospace;
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase; }
 
 footer {
   font-family: "Roboto Slab", monospace;
   text-transform: uppercase;
-  height: 2.5rem;
-  margin-top: 3rem; }
+  height: 2.5rem; }
 
 @keyframes colorchange {
   0% {
