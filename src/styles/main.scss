@@ -5,7 +5,6 @@
 @import 'variables.scss';
 
 body {
-  // background: var(--background);
   animation: colorchange 100s linear infinite; /* animation-name followed by duration in seconds*/
   color: var(--foreground);
   font-family: $sans-font;
@@ -14,6 +13,7 @@ body {
   overflow: hidden;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -26,17 +26,20 @@ body {
 }
 
 #triangle {
-  position: absolute;
-  width: 36rem;
+  position: fixed;
+  width: 36vw;
   right: -5%; 
-  top: -5%;
+  top: -6%;
   transform: rotate(-155deg);
   z-index: -1;
 
   @media (max-width: $break-mobile) {
-    // width: 40vh;
-    visibility: hidden;
+    display: none;
   }
+}
+
+.row{
+  width: 100%;
 }
 
 header {
@@ -71,21 +74,28 @@ header {
 main {
   section {
     flex-grow: 2;
-    display: flex;
 
     // Hide sections until targeted
     display: none;
-    &:target { display:block; }
+    &:target { display: flex; }
     height: 100%;
 
     font-family: $sans-font;
 
     &#intro {
+      @media (max-width: $break-mobile) {
+        text-align: center;
+      }
+
       p {
         font-weight: 600;
-        width:100%;
+        width: 100%;
         font-size: 3rem;
         text-transform: uppercase;
+
+        @media (max-width: $break-mobile) {
+          font-size: 1.5rem;
+        }
       }
 
       .social {
@@ -94,6 +104,7 @@ main {
         }
 
         img {
+				fill: white;
           width: 2.5rem;
           margin-right: 2.5rem; 
         }
@@ -103,9 +114,12 @@ main {
     &#about {
       font-size: 1.625rem;
 
+      @media (max-width: $break-mobile) {
+        font-size: 0.875rem;
+      }
+
       a {
         font-family: $mono-font;
-        font-size: 1.5rem;
         font-weight: 800;
         text-transform: uppercase;
       }
