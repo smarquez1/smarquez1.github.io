@@ -4,11 +4,15 @@
 @import '~bootstrap/scss/bootstrap-grid.scss';
 @import 'variables.scss';
 
+html {
+	height: 100%;
+}
+
 body {
 	animation: colorchange 100s linear infinite; /* animation-name followed by duration in seconds*/
 	color: var(--foreground);
 	font-family: $sans-font;
-	height: 100vh;
+	height: 100%;
 	display: flex;
 	overflow: hidden;
 	flex-direction: column;
