@@ -1,5 +1,3 @@
-import Typed from 'typed.js';
-
 function randomColor(colors) {
   return colors[Math.floor(Math.random()*colors.length)];
 }
@@ -17,13 +15,15 @@ function colorize() {
 }
 
 function init() {
+	/*
   new Typed('#intro .typed', {
-    strings: ['Web Developer based in Spain'],
+    strings: ['Web Developer based in Valencia, Spain'],
     typeSpeed: 40,
     smartDelay: 200,
     backDelay: 5000,
     loop: false,
   });
+	*/
 
   // Target #intro section if URL contains no anchor
   if (window.location.hash.length === 0) {
