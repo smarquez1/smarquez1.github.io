@@ -7786,8 +7786,9 @@ body {
     #triangle {
       display: none; } }
 
-.row {
-  width: 100%; }
+@media (min-width: 800px) {
+  .row {
+    width: 100%; } }
 
 header {
   font-family: "Roboto Slab", monospace;
@@ -7815,7 +7816,7 @@ main section {
   main section:target {
     display: flex; }
   @media (max-width: 800px) {
-    main section#intro {
+    main section#intro #intro_text {
       text-align: center; } }
   main section#intro p {
     font-weight: 600;
