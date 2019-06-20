@@ -7767,7 +7767,8 @@ body {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: relative; }
   body a {
     text-decoration: none;
     color: var(--foreground); }
@@ -7775,15 +7776,18 @@ body {
       color: var(--foreground); }
 
 #triangle {
-  position: absolute;
-  width: 36rem;
+  position: fixed;
+  width: 36vw;
   right: -5%;
-  top: -5%;
+  top: -6%;
   transform: rotate(-155deg);
   z-index: -1; }
   @media (max-width: 800px) {
     #triangle {
-      visibility: hidden; } }
+      display: none; } }
+
+.row {
+  width: 100%; }
 
 header {
   font-family: "Roboto Slab", monospace;
@@ -7805,27 +7809,35 @@ header {
 
 main section {
   flex-grow: 2;
-  display: flex;
   display: none;
   height: 100%;
   font-family: "Open Sans", sans-serif; }
   main section:target {
-    display: block; }
+    display: flex; }
+  @media (max-width: 800px) {
+    main section#intro {
+      text-align: center; } }
   main section#intro p {
     font-weight: 600;
     width: 100%;
     font-size: 3rem;
     text-transform: uppercase; }
+    @media (max-width: 800px) {
+      main section#intro p {
+        font-size: 1.5rem; } }
   main section#intro .social a:hover {
     text-decoration: none; }
   main section#intro .social img {
+    fill: white;
     width: 2.5rem;
     margin-right: 2.5rem; }
   main section#about {
     font-size: 1.625rem; }
+    @media (max-width: 800px) {
+      main section#about {
+        font-size: 0.875rem; } }
     main section#about a {
       font-family: "Roboto Slab", monospace;
-      font-size: 1.5rem;
       font-weight: 800;
       text-transform: uppercase; }
 
