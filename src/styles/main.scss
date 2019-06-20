@@ -5,148 +5,152 @@
 @import 'variables.scss';
 
 body {
-  animation: colorchange 100s linear infinite; /* animation-name followed by duration in seconds*/
-  color: var(--foreground);
-  font-family: $sans-font;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+	animation: colorchange 100s linear infinite; /* animation-name followed by duration in seconds*/
+	color: var(--foreground);
+	font-family: $sans-font;
+	height: 100vh;
+	display: flex;
+	overflow: hidden;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
 
-  a {
-    text-decoration: none;
-    color: var(--foreground);
+	a {
+		text-decoration: none;
+		color: var(--foreground);
 
-    &:hover {
-      color: var(--foreground);
-    }
-  }
+		&:hover {
+			color: var(--foreground);
+		}
+	}
 }
 
 #triangle {
-  position: fixed;
-  width: 36vw;
-  right: -5%; 
-  top: -6%;
-  transform: rotate(-155deg);
-  z-index: -1;
+	position: fixed;
+	width: 36vw;
+	right: -5%; 
+	top: -6%;
+	transform: rotate(-155deg);
+	z-index: -1;
 
-  @media (max-width: $break-mobile) {
-    display: none;
-  }
+	@media (max-width: $break-mobile) {
+		display: none;
+	}
 }
 
-.row{
-  width: 100%;
+.row {
+	@media (min-width: $break-mobile) {
+		width: 100%;
+	}
 }
 
 header {
-  font-family: $mono-font;
-  height: 8rem;
+	font-family: $mono-font;
+	height: 8rem;
 
-  .row{
-    align-items: center;
-    height: 100%;
-  }
+	.row{
+		align-items: center;
+		height: 100%;
+	}
 
-  a {
-    color: var(--background);
+	a {
+		color: var(--background);
 
-    &:hover {
-      color: var(--background);
-    }
-  }
+		&:hover {
+			color: var(--background);
+		}
+	}
 
-  @media (max-width: $break-mobile) {
-    a {
-      color: var(--foreground);
+	@media (max-width: $break-mobile) {
+		a {
+			color: var(--foreground);
 
-      &:hover {
-        color: var(--foreground);
-      }
-    }
-  }
-  #brand { width: 4.125rem; }
+			&:hover {
+				color: var(--foreground);
+			}
+		}
+	}
+	#brand { width: 4.125rem; }
 }
 
 main {
-  section {
-    flex-grow: 2;
+	section {
+		flex-grow: 2;
 
-    // Hide sections until targeted
-    display: none;
-    &:target { display: flex; }
-    height: 100%;
+		// Hide sections until targeted
+		display: none;
+		&:target { display: flex; }
+		height: 100%;
 
-    font-family: $sans-font;
+		font-family: $sans-font;
 
-    &#intro {
-      @media (max-width: $break-mobile) {
-        text-align: center;
-      }
+		&#intro {
+			#intro_text {
+				@media (max-width: $break-mobile) {
+					text-align: center;
+				}
+			}
 
-      p {
-        font-weight: 600;
-        width: 100%;
-        font-size: 3rem;
-        text-transform: uppercase;
+			p {
+				font-weight: 600;
+				width: 100%;
+				font-size: 3rem;
+				text-transform: uppercase;
 
-        @media (max-width: $break-mobile) {
-          font-size: 1.5rem;
-        }
-      }
+				@media (max-width: $break-mobile) {
+					font-size: 1.5rem;
+				}
+			}
 
-      .social {
-        a:hover {
-          text-decoration: none;
-        }
+			.social {
+				a:hover {
+					text-decoration: none;
+				}
 
-        img {
-          width: 2rem;
-          margin-right: 2rem; 
-        }
-      }
-    }
+				img {
+					width: 2rem;
+					margin-right: 2rem; 
+				}
+			}
+		}
 
-    &#about {
-      font-size: 1.625rem;
+		&#about {
+			font-size: 1.625rem;
 
-      @media (max-width: $break-mobile) {
-        font-size: 0.875rem;
-      }
+			@media (max-width: $break-mobile) {
+				font-size: 0.875rem;
+			}
 
-      a {
-        font-family: $mono-font;
-        font-weight: 800;
-        text-transform: uppercase;
-      }
-    }
-  }
+			a {
+				font-family: $mono-font;
+				font-weight: 800;
+				text-transform: uppercase;
+			}
+		}
+	}
 }
 
 footer {
-  font-family: $mono-font;
-  text-transform: uppercase;
-  height: 2.5rem;
+	font-family: $mono-font;
+	text-transform: uppercase;
+	height: 2.5rem;
 }
 
 // Color change animation
 @keyframes colorchange {
-  0%   {
-    background: var(--dark);
-  }
-  25%  {
-    background: var(--green);
-  }
-  50%  {
-    background: var(--blue);
-  }
-  75%  {
-    background: var(--purple);
-  }
-  100% {
-    background: var(--dark);
-  }
+	0%   {
+		background: var(--dark);
+	}
+	25%  {
+		background: var(--green);
+	}
+	50%  {
+		background: var(--blue);
+	}
+	75%  {
+		background: var(--purple);
+	}
+	100% {
+		background: var(--dark);
+	}
 }
