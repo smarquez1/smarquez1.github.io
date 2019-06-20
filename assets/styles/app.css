@@ -7828,9 +7828,8 @@ main section {
   main section#intro .social a:hover {
     text-decoration: none; }
   main section#intro .social img {
-    fill: white;
-    width: 2.5rem;
-    margin-right: 2.5rem; }
+    width: 2rem;
+    margin-right: 2rem; }
   main section#about {
     font-size: 1.625rem; }
     @media (max-width: 800px) {
