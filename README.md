@@ -1,16 +1,24 @@
-## Hi there 👋
+# Hi, I'm Sergio 👋
 
-<!--
-**smarquez1/smarquez1** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, and web platforms.
 
-Here are some ideas to get you started:
+I have 14+ years of experience building web applications and APIs across product discovery, user research, systems analysis, design, and full-stack implementation. I currently help build KaiPod Learning's microschool management platform as part of a four-developer team.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Most of my professional work is maintained in private repositories, with contribution activity visible on this profile.
+
+## Core Technologies
+
+Ruby on Rails · Ruby · JavaScript · Hotwire · React · PostgreSQL · Redis · Sidekiq · Stripe · AWS · CI/CD
+
+## How I Work
+
+- Build product functionality from discovery through production.
+- Partner with users to turn operational problems into maintainable software.
+- Modernize legacy systems incrementally without disrupting customers.
+- Validate changes through automated tests, manual testing, and pull-request review.
+- Use AI-assisted workflows with human understanding and approval throughout.
+
+## Connect
+
+- [LinkedIn](https://www.linkedin.com/in/marquezsd)
+- [Email](mailto:marquez.sergio.d@gmail.com)
