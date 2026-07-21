@@ -1,6 +1,6 @@
 # Hi, I'm Sergio 👋
 
-I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, and web platforms.
+I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, APIs, and full-stack web platforms.
 
 I build and modernize web products from user discovery and systems design through full-stack implementation and production ownership. Over 14+ years, I've built products from the ground up, improved measured page-load performance by 20% to 80%, reduced CI workflows from approximately 40 minutes to 8 minutes, and helped modernize more than 500,000 lines of Ruby on Rails code.
 
