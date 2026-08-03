@@ -18,6 +18,7 @@ The site should communicate real professional experience while demonstrating sem
 
 - Minimalist, technical, and polished.
 - Inspired by the precision of Vercel and the editorial energy of Basement Studio, without copying either brand.
+- Mobile-first and fully responsive across small and large screens.
 - Include light and dark modes.
 - Include small easter eggs and AI-themed interactions only when they preserve accessibility and performance.
 - Keep JavaScript progressive: the site must remain usable with JavaScript disabled.

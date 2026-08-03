@@ -10,6 +10,7 @@ Most of my production engineering work happens in private repositories. This rep
 
 - Building a document-driven professional portfolio.
 - Demonstrating semantic HTML, accessible interfaces, responsive design, SEO, and performance.
+- Treating mobile usability as a first-class requirement, not a final adaptation.
 - Turning private professional experience into clear public context without exposing private details.
 - Using AI-assisted tooling carefully, with human review and ownership of decisions.
 
@@ -22,6 +23,20 @@ Most of my production engineering work happens in private repositories. This rep
 | Frontend | Semantic HTML, accessible UI, responsive layouts, Hotwire, React, and JavaScript. |
 | Systems | PostgreSQL, Redis, Sidekiq, performance work, CI/CD, and practical cloud delivery. |
 | Collaboration | Technical planning, mentoring, code review, documentation, and product partnership. |
+
+## Core Technologies
+
+### Web and Application Development
+
+Ruby · Ruby on Rails · JavaScript · HTML · CSS · Hotwire · Hotwire Native · React · Tailwind CSS
+
+### Data, Cloud, and Delivery
+
+PostgreSQL · Redis · Sidekiq · AWS · Heroku · Stripe · CircleCI · Datadog · CI/CD
+
+### Product and Design
+
+Product discovery · User research · Systems analysis · Software architecture · Technical leadership · Performance optimization · Pencil · Figma Make
 
 ## Selected Signals
 
@@ -39,7 +54,7 @@ This repository is being rebuilt as a public portfolio with a document-first wor
 - [Design principles](docs/design-principles.md)
 - [Content model](docs/content-model.md)
 - [Roadmap](docs/roadmap.md)
-- [Issue backlog](docs/issues.md)
+- [GitHub Issues](https://github.com/smarquez1/smarquez1/issues)
 
 ## Connect
 
