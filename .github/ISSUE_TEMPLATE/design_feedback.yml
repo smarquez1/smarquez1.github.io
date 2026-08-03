@@ -1,0 +1,66 @@
+name: UI/UX feedback
+description: Share focused feedback about layout, flow, visual design, copy, or interaction details.
+title: "Feedback: "
+labels:
+  - feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping shape the portfolio. Focused feedback is especially useful.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This feedback is specific enough to discuss or act on.
+          required: true
+
+  - type: textarea
+    id: noticed
+    attributes:
+      label: What did you notice?
+      placeholder: The hero feels clear, but the primary action is easy to miss.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter?
+      placeholder: It affects the first impression and makes the next step less obvious.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: A concrete suggestion is helpful, but not required.
+      placeholder: Increase contrast, simplify the copy, or move the CTA closer to the intro.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feedback area
+      options:
+        - Layout
+        - Typography
+        - Color or theme
+        - Navigation
+        - Timeline
+        - Copy
+        - Mobile experience
+        - Microinteraction or easter egg
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Extra context
+      description: Add screenshots, references, or examples if useful.

@@ -1,0 +1,64 @@
+name: Accessibility issue
+description: Report an accessibility, keyboard, contrast, reduced-motion, or assistive technology concern.
+title: "Accessibility: "
+labels:
+  - accessibility
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Accessibility feedback is very welcome. The site should work well for everyone.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This issue describes a specific accessibility concern.
+          required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Keyboard navigation
+        - Focus state
+        - Screen reader behavior
+        - Color contrast
+        - Reduced motion
+        - Form or control label
+        - Semantic structure
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is the issue?
+      placeholder: The focus indicator is difficult to see in dark mode.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Who does it affect, and how?
+      placeholder: Keyboard users may lose track of where they are on the page.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      placeholder: Increase the focus ring contrast and test it in both themes.
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Browser, device, assistive technology, OS...

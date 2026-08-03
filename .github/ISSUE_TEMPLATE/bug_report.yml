@@ -1,0 +1,77 @@
+name: Bug report
+description: Report something broken, confusing, or not working as expected.
+title: "Bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. Clear, specific bug reports make the portfolio better.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This is a concrete bug, not general feedback or a question.
+          required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the issue in a few clear sentences.
+      placeholder: The timeline overlaps on mobile when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: I expected the cards to stack with readable spacing.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Keep it short and concrete.
+      placeholder: |
+        1. Open the homepage on mobile
+        2. Scroll to the timeline
+        3. Tap the 2024 entry
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - UI or visual design
+        - UX or interaction
+        - Accessibility
+        - Performance
+        - SEO or metadata
+        - Content or copy
+        - Build or deploy
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Safari on iPhone, Chrome on macOS, Firefox on Android...
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or extra context
+      description: Screenshots, screen recordings, console errors, or notes are welcome.
