@@ -6,7 +6,7 @@
       "command": [
         "sh",
         "-lc",
-        "exec \"${PEN_MCP_SERVER:?Set PEN_MCP_SERVER to the Pen MCP server executable}\" \"$@\"",
+        "server=\"${PEN_MCP_SERVER:-}\"; if [ -z \"$server\" ] && command -v mdfind >/dev/null 2>&1; then app=\"$(mdfind \"kMDItemFSName == 'Pen.app'\" | head -n 1)\"; for candidate in \"$app\"/Contents/Resources/app.asar.unpacked/out/mcp-server-*; do if [ -x \"$candidate\" ]; then server=\"$candidate\"; break; fi; done; fi; [ -x \"$server\" ] || { printf '%s\\n' 'Unable to locate the Pen MCP server.' >&2; exit 1; }; exec \"$server\" \"$@\"",
         "pen-dev",
         "--app",
         "desktop",
