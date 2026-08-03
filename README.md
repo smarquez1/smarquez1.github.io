@@ -1,6 +1,7 @@
 # Hi, I'm Sergio 👋
 
 [![Deploy to GitHub Pages](https://github.com/smarquez1/smarquez1/actions/workflows/deploy.yml/badge.svg)](https://github.com/smarquez1/smarquez1/actions/workflows/deploy.yml)
+[![Continuous Integration](https://github.com/smarquez1/smarquez1/actions/workflows/ci.yml/badge.svg)](https://github.com/smarquez1/smarquez1/actions/workflows/ci.yml)
 
 I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, APIs, and full-stack web platforms.
 
