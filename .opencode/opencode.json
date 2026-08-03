@@ -1,0 +1,34 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "pen-dev": {
+      "type": "local",
+      "command": [
+        "sh",
+        "-lc",
+        "exec \"${PEN_MCP_SERVER:?Set PEN_MCP_SERVER to the Pen MCP server executable}\" \"$@\"",
+        "pen-dev",
+        "--app",
+        "desktop",
+        "--agent",
+        "openCodeCLI"
+      ],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "lighthouse": {
+      "type": "local",
+      "command": ["npx", "-y", "@danielsogl/lighthouse-mcp"],
+      "enabled": true
+    }
+  }
+}
