@@ -13,8 +13,9 @@ These issues were created after checking for existing duplicates.
 | [#1](https://github.com/smarquez1/smarquez1/issues/1) | Implement semantic homepage shell | Build landmarks, skip link, hero, and page structure with no JavaScript dependency. |
 | [#3](https://github.com/smarquez1/smarquez1/issues/3) | Implement responsive career timeline | Build timeline with semantic ordered list, dates, expandable details, and mobile layout. |
 | [#12](https://github.com/smarquez1/smarquez1/issues/12) | Add light and dark modes | Implement system-aware themes and accessible manual toggle as progressive enhancement. |
-| [#7](https://github.com/smarquez1/smarquez1/issues/7) | Add small easter eggs | Add non-essential interaction details that preserve accessibility and performance. |
+| [#7](https://github.com/smarquez1/smarquez1/issues/7) | Add small easter eggs | Add non-essential interaction details, including a tasteful ASCII `Hire me` note, while preserving accessibility and performance. |
 | [#9](https://github.com/smarquez1/smarquez1/issues/9) | Add `How this was made` section | Explain document-driven workflow and transparent OpenCode usage. |
+| [#14](https://github.com/smarquez1/smarquez1/issues/14) | Add public profile links and downloadable resume PDF | Add visible LinkedIn and GitHub links plus a reviewed downloadable resume PDF. |
 | [#10](https://github.com/smarquez1/smarquez1/issues/10) | Add accessibility, SEO, and performance checks | Add validation tooling and document manual review criteria. |
 | [#13](https://github.com/smarquez1/smarquez1/issues/13) | Configure CI quality gates | Add repeatable CI checks for docs, builds, HTML, accessibility, SEO, and performance. |
 | [#8](https://github.com/smarquez1/smarquez1/issues/8) | Deploy to GitHub Pages | Publish the MVP and verify the public URL. |

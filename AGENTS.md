@@ -41,6 +41,8 @@ The site should communicate real professional experience while demonstrating sem
 - Optimize for Lighthouse scores across Performance, Accessibility, Best Practices, and SEO.
 - Use Tailwind CSS with a local build, not the CDN.
 - Prefer small vanilla JavaScript and Stimulus controllers for progressive enhancement.
+- Do not intentionally obfuscate production code. Keep the public source readable enough to support the portfolio-as-code-sample goal.
+- Production source maps are acceptable when they help reviewers inspect the work and do not expose secrets, private paths, or unpublished information.
 - Treat DeepSeek or any real AI API integration as a nice-to-have behind a secure serverless endpoint, never directly from GitHub Pages.
 
 ## Mockup Workflow

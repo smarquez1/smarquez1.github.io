@@ -12,6 +12,7 @@ Build the portfolio in documented, reviewable phases.
 | Static Build | Semantic HTML, Tailwind, light and dark modes, and progressive enhancement. |
 | CI | Repeatable quality gates for documentation, builds, HTML, accessibility, SEO, and performance. |
 | Quality | Accessibility, SEO, performance, responsive, and JavaScript-disabled verification. |
+| Reviewability | Keep public code readable, avoid intentional obfuscation, and decide whether production source maps are useful. |
 | Deploy | GitHub Pages deployment with documented build workflow. |
 
 ## Nice To Have

@@ -40,3 +40,23 @@ Avoid:
 - Claims that AI built or decided the product.
 - A live model in the MVP.
 - Hidden API keys in frontend code.
+
+## Easter Eggs
+
+Easter eggs should reward curiosity without becoming required UI.
+
+Good candidates:
+
+- A small ASCII `Hire me` note in source code or developer-facing output.
+- A tasteful terminal-style detail that appears in agent tools or DevTools.
+- Hidden copy that reinforces the professional tone without becoming spammy.
+
+Rules:
+
+- Keep source comments short and intentional.
+- Keep production code readable enough for reviewers to inspect.
+- Use source maps when they help preserve readability and do not expose private information.
+- Do not hide important content only in ASCII art.
+- Do not add misleading metadata or keyword stuffing.
+- Do not reduce accessibility, SEO, or performance scores for the joke.
+- Avoid anything that looks like malware, tracking, or console abuse.

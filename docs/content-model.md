@@ -13,7 +13,7 @@ This document defines the content the portfolio needs before mockups and impleme
 | How I Work | Explain engineering judgment and collaboration style. | Include AI-assisted development as one workflow detail. |
 | Public Sample | Explain that this site is the public code sample. | Link GitHub repository and process docs. |
 | How This Was Made | Document-driven process and OpenCode usage. | Be transparent without over-centering AI. |
-| Contact | Provide next steps. | LinkedIn, GitHub, email. |
+| Contact | Provide next steps. | LinkedIn, GitHub, email, and downloadable resume PDF. |
 
 ## Timeline Entry Shape
 
@@ -37,3 +37,14 @@ Example direction:
 ```text
 Most of my production work is private. This site is the public sample: a small, carefully built portfolio focused on semantic HTML, accessible interfaces, and honest career context.
 ```
+
+## Public Links And Resume
+
+The portfolio should include:
+
+- LinkedIn profile link.
+- GitHub profile link.
+- Email contact link.
+- Downloadable resume PDF.
+
+The resume PDF must be intentionally selected and reviewed before publishing. Use a stable, public-friendly filename and document where the source version comes from.
