@@ -1,24 +1,48 @@
-# Hi, I'm Sergio 👋
+# Sergio Marquez
 
-I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, APIs, and full-stack web platforms.
+Senior Product Engineer focused on Ruby on Rails, SaaS, APIs, and full-stack web platforms.
 
-I build and modernize web products from user discovery and systems design through full-stack implementation and production ownership. Over 14+ years, I've built products from the ground up, improved measured page-load performance by 20% to 80%, reduced CI workflows from approximately 40 minutes to 8 minutes, and helped modernize more than 500,000 lines of Ruby on Rails code.
+I build and modernize web products from user discovery and systems design through full-stack implementation and production ownership.
 
-I currently help build KaiPod Learning's microschool management platform as part of a four-developer team. Most of my professional engineering activity happens in private repositories.
+Most of my production engineering work happens in private repositories. This repository is becoming my public portfolio and frontend quality sample.
 
-## Core Technologies
+## Current Focus
 
-Ruby on Rails · Ruby · JavaScript · Hotwire · React · PostgreSQL · Redis · Sidekiq · Stripe · AWS · CI/CD
+- Building a document-driven professional portfolio.
+- Demonstrating semantic HTML, accessible interfaces, responsive design, SEO, and performance.
+- Turning private professional experience into clear public context without exposing private details.
+- Using AI-assisted tooling carefully, with human review and ownership of decisions.
 
-## What I Bring
+## Engineering Profile
 
-- End-to-end product engineering, from user research and problem discovery through production delivery.
-- Deep experience evolving large Ruby on Rails systems incrementally and safely.
-- Performance work grounded in measurement, query analysis, and practical frontend improvements.
-- Technical leadership through architecture, planning, mentoring, and code review.
-- AI-assisted development with human understanding, testing, and approval throughout.
+| Area | Focus |
+| --- | --- |
+| Product engineering | User discovery, systems design, implementation, and production ownership. |
+| Ruby on Rails | SaaS platforms, APIs, integrations, modernization, and maintainability. |
+| Frontend | Semantic HTML, accessible UI, responsive layouts, Hotwire, React, and JavaScript. |
+| Systems | PostgreSQL, Redis, Sidekiq, performance work, CI/CD, and practical cloud delivery. |
+| Collaboration | Technical planning, mentoring, code review, documentation, and product partnership. |
+
+## Selected Signals
+
+- 14+ years building and maintaining web products.
+- Measured page-load performance improvements from 20% to 80%.
+- CI workflow reduction from approximately 40 minutes to 8 minutes.
+- Modernization work across more than 500,000 lines of Ruby on Rails code.
+- Current work on KaiPod Learning's microschool management platform as part of a four-developer team.
+
+## Portfolio Project
+
+This repository is being rebuilt as a public portfolio with a document-first workflow.
+
+- [Vision](docs/vision.md)
+- [Design principles](docs/design-principles.md)
+- [Content model](docs/content-model.md)
+- [Roadmap](docs/roadmap.md)
+- [Issue backlog](docs/issues.md)
 
 ## Connect
 
 - [LinkedIn](https://www.linkedin.com/in/marquezsd)
+- [GitHub](https://github.com/smarquez1)
 - [Email](mailto:marquez.sergio.d@gmail.com)
