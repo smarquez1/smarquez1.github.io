@@ -39,3 +39,12 @@ jobs:
 
       - name: Build static site
         run: npm run build
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run accessibility and no-JavaScript checks
+        run: npm run quality:browser
+
+      - name: Run Lighthouse CI
+        run: npm run quality:lighthouse

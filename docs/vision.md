@@ -8,12 +8,12 @@ The portfolio should help recruiters, engineering managers, and teams quickly un
 
 ## Audience
 
-| Audience | What they need |
-| --- | --- |
-| Recruiters | Clear role fit, contact links, and searchable career positioning. |
-| Engineering managers | Evidence of judgment, ownership, frontend care, and systems thinking. |
+| Audience                       | What they need                                                                                                  |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| Recruiters                     | Clear role fit, contact links, and searchable career positioning.                                               |
+| Engineering managers           | Evidence of judgment, ownership, frontend care, and systems thinking.                                           |
 | Prospective frontend reviewers | A public page and repository that demonstrate semantic HTML, CSS, responsive design, and frontend fundamentals. |
-| Sergio | A maintainable personal site that can evolve through documented decisions. |
+| Sergio                         | A maintainable personal site that can evolve through documented decisions.                                      |
 
 ## Positioning
 

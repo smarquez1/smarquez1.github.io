@@ -1,6 +1,6 @@
 name: Idea or improvement
 description: Suggest a focused improvement, section, interaction, or future enhancement.
-title: "Idea: "
+title: 'Idea: '
 labels:
   - enhancement
 body:

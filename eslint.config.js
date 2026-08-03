@@ -22,4 +22,12 @@ export default [
       globals: globals.node,
     },
   },
+  {
+    files: ['scripts/**/*.mjs', '.lighthouserc.cjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: globals.node,
+    },
+  },
 ];

@@ -1,6 +1,6 @@
 name: Accessibility issue
 description: Report an accessibility, keyboard, contrast, reduced-motion, or assistive technology concern.
-title: "Accessibility: "
+title: 'Accessibility: '
 labels:
   - accessibility
 body:

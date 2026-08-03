@@ -1,0 +1,21 @@
+module.exports = {
+  ci: {
+    collect: {
+      startServerCommand: 'npm run preview -- --host 127.0.0.1 --port 4173',
+      url: ['http://127.0.0.1:4173/'],
+      numberOfRuns: 1,
+      settings: {
+        chromeFlags: '--no-sandbox',
+      },
+    },
+    assert: {
+      preset: 'lighthouse:recommended',
+      assertions: {
+        'network-dependency-tree-insight': 'off',
+      },
+    },
+    upload: {
+      target: 'temporary-public-storage',
+    },
+  },
+};

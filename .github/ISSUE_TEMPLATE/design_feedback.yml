@@ -1,6 +1,6 @@
 name: UI/UX feedback
 description: Share focused feedback about layout, flow, visual design, copy, or interaction details.
-title: "Feedback: "
+title: 'Feedback: '
 labels:
   - feedback
 body:

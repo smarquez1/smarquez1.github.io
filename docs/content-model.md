@@ -4,16 +4,16 @@ This document defines the content the portfolio needs before mockups and impleme
 
 ## Page Sections
 
-| Section | Purpose | Notes |
-| --- | --- | --- |
-| Hero | Establish identity and positioning quickly. | Include name, role, short line, and primary actions. |
-| About | Explain Sergio's product engineering approach. | Keep concise and human. |
-| Timeline | Present real career history visually. | Use semantic ordered list with dates. |
-| Technical Focus | Show core technologies and strengths. | Avoid long unprioritized keyword lists. |
-| How I Work | Explain engineering judgment and collaboration style. | Include AI-assisted development as one workflow detail. |
-| Public Sample | Explain that this site is the public code sample. | Link GitHub repository and process docs. |
-| How This Was Made | Document-driven process and OpenCode usage. | Be transparent without over-centering AI. |
-| Contact | Provide next steps. | LinkedIn, GitHub, email, and downloadable resume PDF. |
+| Section           | Purpose                                               | Notes                                                   |
+| ----------------- | ----------------------------------------------------- | ------------------------------------------------------- |
+| Hero              | Establish identity and positioning quickly.           | Include name, role, short line, and primary actions.    |
+| About             | Explain Sergio's product engineering approach.        | Keep concise and human.                                 |
+| Timeline          | Present real career history visually.                 | Use semantic ordered list with dates.                   |
+| Technical Focus   | Show core technologies and strengths.                 | Avoid long unprioritized keyword lists.                 |
+| How I Work        | Explain engineering judgment and collaboration style. | Include AI-assisted development as one workflow detail. |
+| Public Sample     | Explain that this site is the public code sample.     | Link GitHub repository and process docs.                |
+| How This Was Made | Document-driven process and OpenCode usage.           | Be transparent without over-centering AI.               |
+| Contact           | Provide next steps.                                   | LinkedIn, GitHub, email, and downloadable resume PDF.   |
 
 ## Timeline Entry Shape
 
