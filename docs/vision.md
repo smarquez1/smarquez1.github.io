@@ -12,7 +12,7 @@ The portfolio should help recruiters, engineering managers, and teams quickly un
 | --- | --- |
 | Recruiters | Clear role fit, contact links, and searchable career positioning. |
 | Engineering managers | Evidence of judgment, ownership, frontend care, and systems thinking. |
-| JetRockets reviewers | A public page and repository that demonstrate semantic HTML, CSS, responsive design, and frontend fundamentals. |
+| Prospective frontend reviewers | A public page and repository that demonstrate semantic HTML, CSS, responsive design, and frontend fundamentals. |
 | Sergio | A maintainable personal site that can evolve through documented decisions. |
 
 ## Positioning

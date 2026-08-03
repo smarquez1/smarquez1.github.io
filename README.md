@@ -38,6 +38,20 @@ PostgreSQL · Redis · Sidekiq · AWS · Heroku · Stripe · CircleCI · Datadog
 
 Product discovery · User research · Systems analysis · Software architecture · Technical leadership · Performance optimization · Pencil · Figma Make
 
+## Portfolio Stack
+
+This project is intentionally small and standards-focused:
+
+- **Markup:** Semantic HTML5
+- **Styling:** Tailwind CSS
+- **Progressive enhancement:** Modern JavaScript and Stimulus
+- **Build:** Vite
+- **Design:** Pencil mockups with desktop and mobile variants
+- **Quality:** `html-validate`, `axe-core`, Lighthouse CI, Markdown linting
+- **Hosting and automation:** GitHub Pages and GitHub Actions
+
+The MVP does not use Rails, React, TypeScript, or a runtime AI model. The goal is to make the fundamentals visible first.
+
 ## Selected Signals
 
 - 14+ years building and maintaining web products.

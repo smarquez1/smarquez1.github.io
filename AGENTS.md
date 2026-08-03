@@ -40,6 +40,10 @@ The site should communicate real professional experience while demonstrating sem
 - Use accessible names, visible focus states, keyboard navigation, skip links, and strong color contrast.
 - Respect `prefers-reduced-motion`.
 - Optimize for Lighthouse scores across Performance, Accessibility, Best Practices, and SEO.
+- MVP stack: semantic HTML5, Tailwind CSS, modern JavaScript, Stimulus, and Vite.
+- Hosting and automation: GitHub Pages for hosting and GitHub Actions for CI and deployment.
+- Quality tooling: `html-validate`, `axe-core`, Lighthouse CI, Markdown linting, and link checking where useful.
+- Do not add Rails, React, TypeScript, or a runtime AI model to the MVP without a documented reason.
 - Use Tailwind CSS with a local build, not the CDN.
 - Prefer small vanilla JavaScript and Stimulus controllers for progressive enhancement.
 - Do not intentionally obfuscate production code. Keep the public source readable enough to support the portfolio-as-code-sample goal.

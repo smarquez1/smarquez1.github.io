@@ -9,11 +9,11 @@ Build the portfolio in documented, reviewable phases.
 | Foundation | Project instructions, docs, issue backlog, and repository structure. |
 | Content | Verified content model for hero, about, timeline, technical focus, process, and contact. |
 | Mockups | Approved desktop and mobile images for the main page. |
-| Static Build | Mobile-first semantic HTML, Tailwind, light and dark modes, and progressive enhancement. |
-| CI | Repeatable quality gates for documentation, builds, HTML, accessibility, SEO, and performance. |
+| Static Build | Mobile-first semantic HTML5, Tailwind, Stimulus, Vite, light and dark modes, and progressive enhancement. |
+| CI | GitHub Actions with Markdown linting, builds, HTML validation, axe, Lighthouse CI, SEO, and performance checks. |
 | Quality | Accessibility, SEO, performance, mobile and desktop responsive behavior, and JavaScript-disabled verification. |
 | Reviewability | Keep public code readable, avoid intentional obfuscation, and decide whether production source maps are useful. |
-| Deploy | GitHub Pages deployment with documented build workflow. |
+| Deploy | GitHub Pages deployment through GitHub Actions with public status badges. |
 
 ## Nice To Have
 
