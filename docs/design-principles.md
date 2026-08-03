@@ -2,6 +2,10 @@
 
 Use these principles to evaluate mockups and implementation choices.
 
+The design-system decision is recorded in [ADR 001](decisions/001_bespoke_portfolio_design_system.md).
+
+The mockup review workflow is recorded in [ADR 002](decisions/002_mockup_model_review_workflow.md).
+
 ## Direction
 
 Minimalist technology with personality.

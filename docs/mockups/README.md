@@ -11,6 +11,12 @@ Store approved image mockups and their source notes here.
 5. Document the prompt and design decisions.
 6. Convert the approved mockup into GitHub Issue acceptance criteria.
 
+## AI Review Passes
+
+- Use GPT-5.6 Luna for the initial design exploration through OpenCode and pen.dev.
+- Use Kimi K3 for an independent critique and refinement pass.
+- Keep human review as the final approval step.
+
 ## Naming
 
 Use lowercase snake case:

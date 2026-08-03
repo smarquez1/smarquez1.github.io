@@ -66,6 +66,7 @@ This repository is being rebuilt as a public portfolio with a document-first wor
 
 - [Vision](docs/vision.md)
 - [Design principles](docs/design-principles.md)
+- [Design system decision](docs/decisions/001_bespoke_portfolio_design_system.md)
 - [Content model](docs/content-model.md)
 - [Roadmap](docs/roadmap.md)
 - [GitHub Issues](https://github.com/smarquez1/smarquez1/issues)
