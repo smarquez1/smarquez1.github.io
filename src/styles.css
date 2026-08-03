@@ -6,6 +6,7 @@
   --color-muted: #aab2bf;
   --color-line: #303640;
   --color-accent: #72a0ff;
+  --color-panel: #171b22;
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
@@ -14,6 +15,97 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 4px;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-wide text-accent;
+  }
+
+  .section-heading {
+    @apply font-sans text-3xl font-bold tracking-tight text-paper sm:text-4xl;
+  }
+
+  .section-divider {
+    @apply border-y border-line;
+  }
+
+  .button-primary,
+  .button-secondary {
+    @apply inline-flex items-center justify-center px-5 py-3 text-sm font-bold transition-colors;
+  }
+
+  .button-primary {
+    @apply bg-accent text-ink hover:bg-paper;
+  }
+
+  .button-secondary {
+    @apply border border-paper text-paper hover:bg-paper hover:text-ink;
+  }
+
+  .link-arrow {
+    @apply text-paper transition-colors hover:text-accent;
+  }
+
+  .link-arrow::after {
+    content: ' ->';
+  }
+
+  .technical-panel {
+    @apply flex min-h-80 flex-col justify-between border border-paper bg-panel p-6;
+  }
+
+  .technical-map {
+    @apply relative my-8 h-48;
+  }
+
+  .technical-line {
+    @apply absolute bg-paper;
+  }
+
+  .technical-line--horizontal {
+    @apply left-6 right-6 top-1/2 h-px;
+  }
+
+  .technical-line--vertical {
+    @apply bottom-5 left-1/2 top-5 w-px;
+  }
+
+  .technical-node {
+    @apply absolute top-1/2 flex size-24 -translate-y-1/2 items-center justify-center rounded-full border bg-ink font-mono text-xs;
+  }
+
+  .technical-node--accent {
+    @apply left-8 border-2 border-accent text-accent;
+  }
+
+  .technical-node--ink {
+    @apply right-8 border-paper text-paper;
+  }
+
+  .timeline-item {
+    @apply grid grid-cols-[5.5rem_0.75rem_1fr] items-center gap-4 border-b border-line py-7 sm:grid-cols-[9rem_0.75rem_1fr] sm:gap-6;
+  }
+
+  .timeline-date {
+    @apply font-mono text-[0.6875rem] tracking-wide text-muted;
+  }
+
+  .timeline-marker {
+    @apply size-3 rounded-full border-2 border-muted;
+  }
+
+  .timeline-marker--active {
+    @apply border-accent bg-accent;
+  }
+
+  .focus-item {
+    @apply flex items-center justify-between gap-6 py-4 text-base font-bold text-paper sm:text-lg;
+  }
+
+  .focus-number {
+    @apply font-mono text-xs font-normal text-accent;
   }
 }
 
