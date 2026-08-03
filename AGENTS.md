@@ -13,6 +13,7 @@ The site should communicate real professional experience while demonstrating sem
 - Keep work small, reviewable, and verifiable.
 - Do not start coding a screen before its mockups and acceptance criteria exist.
 - Treat the site itself as the primary public code sample.
+- Do not create commits or push changes automatically; do so only when the user explicitly requests it.
 
 ## Project Planning
 
