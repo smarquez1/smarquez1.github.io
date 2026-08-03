@@ -6,6 +6,8 @@ I build and modernize web products from user discovery and systems design throug
 
 I currently help build KaiPod Learning's microschool management platform as part of a four-developer team. Most of my professional engineering activity happens in private repositories.
 
+[Explore my portfolio →](https://smarquez1.github.io/smarquez1/)
+
 ## Core Technologies
 
 Ruby on Rails · Ruby · JavaScript · Hotwire · React · PostgreSQL · Redis · Sidekiq · Stripe · AWS · CI/CD
