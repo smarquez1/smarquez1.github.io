@@ -34,7 +34,7 @@ Use this skill when creating or revising GitHub Issues for the portfolio.
 - Mockups come before implementation.
 - Semantic structure comes before decorative interaction.
 - Accessibility, SEO, performance, and JavaScript-disabled behavior need explicit verification.
-- DeepSeek or live AI assistant work stays separate from the MVP.
+- Cheap and fast model or live AI assistant work stays separate from the MVP.
 
 ## Checklist
 

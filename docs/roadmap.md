@@ -17,8 +17,8 @@ Build the portfolio in documented, reviewable phases.
 
 ## Nice To Have
 
-- `Ask Sergio` static assistant with verified local responses.
-- DeepSeek-backed assistant through a secure serverless endpoint.
+- `Ask Sergio` static profile Q&A experience with verified local responses.
+- Profile Q&A backed by a cheap and fast model through a secure serverless endpoint.
 - Additional easter eggs.
 - Case-study style write-up about building the portfolio.
 - Animated timeline refinements after baseline accessibility and performance pass.

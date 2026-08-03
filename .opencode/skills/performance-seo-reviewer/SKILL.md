@@ -19,7 +19,7 @@ Use this skill for build setup, asset choices, metadata, deploy verification, an
 ## Portfolio-Specific Rules
 
 - The page should perform well before easter eggs or AI experiments are added.
-- The `Ask Sergio` DeepSeek assistant is not part of the MVP and must not block page load.
+- The `Ask Sergio` experience backed by a cheap and fast model is not part of the MVP and must not block page load.
 - GitHub Pages deploys must be verified on the public URL.
 - The README profile and site metadata should reinforce the same positioning.
 
