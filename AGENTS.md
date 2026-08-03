@@ -14,6 +14,14 @@ The site should communicate real professional experience while demonstrating sem
 - Do not start coding a screen before its mockups and acceptance criteria exist.
 - Treat the site itself as the primary public code sample.
 
+## Project Planning
+
+- Use the public [Sergio Marquez Portfolio MVP project](https://github.com/users/smarquez1/projects/4) as the planning source for issue order and delivery status.
+- Add meaningful issues to the project before implementation and keep their status current.
+- Use the project fields `Status`, `Phase`, `Priority`, and `Order` to make dependencies and sequencing visible.
+- Follow the documented delivery sequence: Foundation, Content, Mockups, Build, Quality, then Deploy.
+- Treat GitHub issue numbers as work-unit identifiers, not as the implementation order.
+
 ## Product Direction
 
 - Minimalist, technical, and polished.
@@ -32,6 +40,7 @@ The site should communicate real professional experience while demonstrating sem
 - Professional work may be described through sanitized, factual summaries.
 - Be transparent that most production work is private and that this site is the public sample.
 - Mention AI usage as tooling and process support, not as authorship or decision ownership.
+- Keep the root `README.md` dedicated to Sergio's GitHub profile dashboard; put portfolio project documentation under `docs/` instead.
 
 ## Technical Principles
 
