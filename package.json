@@ -11,7 +11,8 @@
     "lint:js": "eslint .",
     "lint:html": "html-validate index.html",
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"!node_modules/**\"",
-    "format:check": "prettier --check package.json vite.config.js eslint.config.js index.html src/main.js src/styles.css docs/development.md .htmlvalidate.json .markdownlint-cli2.mjs .prettierrc.json"
+    "format:check": "prettier --check package.json vite.config.js eslint.config.js index.html src/main.js src/styles.css docs/development.md .htmlvalidate.json .markdownlint-cli2.mjs .prettierrc.json",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2"
@@ -24,7 +25,11 @@
     "html-validate": "^11.6.2",
     "markdownlint-cli2": "^0.18.1",
     "prettier": "^3.6.2",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4.1.11",
     "vite": "^8.1.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint"
   }
 }
