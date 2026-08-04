@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "BROWSER=\"Google Chrome\" vite preview --open",
     "lint": "npm run lint:js && npm run lint:html && npm run lint:md",
     "lint:js": "eslint .",
     "lint:html": "npm run build && html-validate dist/index.html",
