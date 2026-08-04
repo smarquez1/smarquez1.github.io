@@ -110,6 +110,39 @@ const assertSemanticShell = async (page, label) => {
   }
 };
 
+const assertTimeline = async (page, label) => {
+  const disclosure = page.locator('#experience > details.timeline-disclosure');
+  if ((await disclosure.count()) !== 1) {
+    throw new Error(`${label} experience section must provide one expandable timeline.`);
+  }
+  const timeline = disclosure.locator(':scope > ol');
+  if ((await timeline.locator(':scope > li').count()) !== 8) {
+    throw new Error(`${label} timeline must contain eight career entries.`);
+  }
+  if ((await timeline.locator(':scope > li time').count()) !== 8) {
+    throw new Error(`${label} timeline entries must use time elements for their dates.`);
+  }
+  if ((await timeline.locator(':scope > li article').count()) !== 8) {
+    throw new Error(`${label} timeline entries must be articles.`);
+  }
+  if ((await timeline.locator(':scope > li details').count()) !== 8) {
+    throw new Error(`${label} timeline entries must provide native expandable details.`);
+  }
+  if ((await timeline.locator(':scope > li h3 a').count()) !== 6) {
+    throw new Error(`${label} timeline must link the six researched employers with public websites.`);
+  }
+
+  const contributionNotes = timeline.getByText('Contribution notes', { exact: true });
+  await contributionNotes.first().focus();
+  if (
+    !(await contributionNotes
+      .first()
+      .evaluate((element) => element === element.ownerDocument.activeElement))
+  ) {
+    throw new Error(`${label} timeline details are not keyboard focusable.`);
+  }
+};
+
 try {
   await waitForPreview();
   const browser = await chromium.launch();
@@ -123,6 +156,7 @@ try {
       const page = await context.newPage();
       await page.goto(baseUrl, { waitUntil: 'networkidle' });
       await assertSemanticShell(page, label);
+      await assertTimeline(page, label);
       await assertNoAccessibilityViolations(page, label);
       await context.close();
       await assertJavaScriptDisabled(browser, viewport, label);

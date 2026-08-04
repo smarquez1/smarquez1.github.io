@@ -53,3 +53,10 @@ The current published file is `public/assets/Sergio-Marquez-Resume.pdf`. It is
 the reviewed PDF supplied for this release. To update it, review the replacement
 PDF first, keep the stable filename, replace the public asset, and verify the
 download link in the production build.
+
+## Career Source Of Truth
+
+Public timeline employers, titles, dates, and role descriptions must follow the
+approved LinkedIn experience document maintained in the separate resume project.
+The resume project's company research may add attributed external context, but it
+must not change Sergio's career facts or imply unverified client ownership.
