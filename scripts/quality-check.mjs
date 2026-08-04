@@ -58,10 +58,10 @@ const assertJavaScriptDisabled = async (browser, viewport, label) => {
   }
 
   for (const heading of [
-    'I turn hard product problems into software that ships.',
-    'About / 01',
-    'Experience / 02',
-    'Technical focus / 03',
+    'Product engineering for SaaS platforms, APIs, and complex workflows.',
+    '01 / About',
+    '02 / Experience',
+    '03 / Technical focus',
     'Let’s build something useful.',
   ]) {
     if (!(await page.getByRole('heading', { name: heading }).isVisible())) {

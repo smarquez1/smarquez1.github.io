@@ -37,10 +37,6 @@
     @apply font-sans text-3xl font-bold tracking-tight text-paper sm:text-4xl;
   }
 
-  .section-divider {
-    @apply border-y border-line;
-  }
-
   .button-primary,
   .button-secondary {
     @apply inline-flex items-center justify-center px-5 py-3 text-sm font-bold transition-colors;
@@ -62,38 +58,6 @@
     content: ' ->';
   }
 
-  .technical-panel {
-    @apply flex min-h-80 flex-col justify-between border border-paper bg-panel p-6;
-  }
-
-  .technical-map {
-    @apply relative my-8 h-48;
-  }
-
-  .technical-line {
-    @apply absolute bg-paper;
-  }
-
-  .technical-line--horizontal {
-    @apply left-6 right-6 top-1/2 h-px;
-  }
-
-  .technical-line--vertical {
-    @apply bottom-5 left-1/2 top-5 w-px;
-  }
-
-  .technical-node {
-    @apply absolute top-1/2 flex size-24 -translate-y-1/2 items-center justify-center rounded-full border bg-ink font-mono text-xs;
-  }
-
-  .technical-node--accent {
-    @apply left-8 border-2 border-accent text-accent;
-  }
-
-  .technical-node--ink {
-    @apply right-8 border-paper text-paper;
-  }
-
   .timeline-list {
     @apply relative mt-10;
   }
@@ -103,7 +67,11 @@
   }
 
   .timeline-disclosure > summary {
-    @apply flex cursor-pointer list-none items-center justify-between border-y border-line py-4 font-mono text-xs uppercase tracking-wide text-accent;
+    @apply grid cursor-pointer list-none grid-cols-[minmax(0,1fr)_auto] items-center gap-y-2 border-y border-line py-4 font-mono text-xs uppercase tracking-wide text-accent sm:grid-cols-[minmax(0,1fr)_auto_auto];
+  }
+
+  .timeline-count {
+    @apply col-span-2 row-start-2 text-muted sm:col-span-1 sm:col-start-2 sm:row-start-1;
   }
 
   .timeline-disclosure > summary::-webkit-details-marker {
@@ -112,7 +80,7 @@
 
   .timeline-disclosure > summary::after {
     content: '+';
-    @apply ml-4 text-lg leading-none text-paper;
+    @apply col-start-2 row-start-1 ml-4 text-lg leading-none text-paper sm:col-start-3 sm:ml-10;
   }
 
   .timeline-disclosure[open] > summary::after {
@@ -121,15 +89,15 @@
 
   .timeline-list::before {
     content: '';
-    @apply absolute bottom-0 left-[6.875rem] top-0 w-px bg-line sm:left-[12rem];
+    @apply absolute bottom-0 left-[0.3125rem] top-[4.5rem] w-px bg-line sm:left-[12rem] sm:top-0;
   }
 
   .timeline-item {
-    @apply relative grid grid-cols-[5.5rem_0.75rem_minmax(0,1fr)] items-start gap-4 border-t border-line py-7 sm:grid-cols-[10rem_1rem_minmax(0,1fr)] sm:gap-6 sm:py-8;
+    @apply relative grid grid-cols-[0.75rem_minmax(0,1fr)] items-start gap-4 border-t border-line py-7 sm:grid-cols-[10rem_1rem_minmax(0,1fr)] sm:gap-6 sm:py-8;
   }
 
   .timeline-date {
-    @apply flex min-w-0 flex-col gap-1 pt-1 font-mono text-[0.625rem] tracking-wide text-muted sm:text-[0.6875rem];
+    @apply col-span-2 flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1 pb-4 font-mono text-[0.625rem] tracking-wide text-muted sm:col-span-1 sm:flex-col sm:items-start sm:gap-1 sm:pb-0 sm:pt-1 sm:text-[0.6875rem];
   }
 
   .timeline-marker {
@@ -172,6 +140,10 @@
     @apply mt-1 text-sm font-semibold text-accent;
   }
 
+  .timeline-industry {
+    @apply mt-2 font-mono text-[0.625rem] uppercase tracking-wide text-muted;
+  }
+
   .timeline-status,
   .timeline-number {
     @apply shrink-0 font-mono text-[0.625rem] tracking-wide;
@@ -187,6 +159,10 @@
 
   .timeline-summary {
     @apply mt-5 max-w-3xl text-base leading-7 text-paper sm:text-lg sm:leading-8;
+  }
+
+  .timeline-company-context {
+    @apply mt-4 max-w-3xl text-sm leading-6 text-muted;
   }
 
   .timeline-details {
