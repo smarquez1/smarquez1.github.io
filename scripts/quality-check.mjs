@@ -58,7 +58,7 @@ const assertJavaScriptDisabled = async (browser, viewport, label) => {
   }
 
   for (const heading of [
-    'Product engineering for SaaS platforms, APIs, and complex workflows.',
+    'I’m a product engineer who connects product discovery, systems design, and full-stack delivery.',
     '01 / About',
     '02 / Experience',
     '03 / Technical focus',
@@ -145,6 +145,50 @@ const assertTimeline = async (page, label) => {
   }
 };
 
+const assertSocialMetadata = async (page, label) => {
+  const expectedDescription =
+    'Product engineering for SaaS platforms, APIs, and complex workflows.';
+  const expectedImage = 'https://smarquez1.github.io/assets/social-preview-v2.png';
+  const expectedAlt =
+    'Sergio Marquez, Senior Product Engineer. Product engineering for SaaS platforms, APIs, and complex workflows.';
+
+  for (const [selector, expected] of [
+    ['link[rel="canonical"]', 'https://smarquez1.github.io/'],
+    ['meta[property="og:description"]', expectedDescription],
+    ['meta[property="og:image"]', expectedImage],
+    ['meta[property="og:image:alt"]', expectedAlt],
+    ['meta[name="twitter:description"]', expectedDescription],
+    ['meta[name="twitter:image"]', expectedImage],
+    ['meta[name="twitter:image:alt"]', expectedAlt],
+  ]) {
+    const attribute = selector.startsWith('link') ? 'href' : 'content';
+    const actual = await page.locator(selector).getAttribute(attribute);
+    if (actual !== expected) {
+      throw new Error(`${label} ${selector} must equal ${expected}. Received ${actual}.`);
+    }
+  }
+
+  const dimensions = await page.evaluate(
+    () =>
+      new Promise((resolve, reject) => {
+        const image = new globalThis.Image();
+        image.addEventListener('load', () =>
+          resolve({ width: image.naturalWidth, height: image.naturalHeight }),
+        );
+        image.addEventListener('error', () =>
+          reject(new Error('Social preview image failed to load.')),
+        );
+        image.src = '/assets/social-preview-v2.png';
+      }),
+  );
+
+  if (dimensions.width !== 1200 || dimensions.height !== 630) {
+    throw new Error(
+      `${label} social preview must be 1200x630. Received ${dimensions.width}x${dimensions.height}.`,
+    );
+  }
+};
+
 try {
   await waitForPreview();
   const browser = await chromium.launch();
@@ -159,6 +203,7 @@ try {
       await page.goto(baseUrl, { waitUntil: 'networkidle' });
       await assertSemanticShell(page, label);
       await assertTimeline(page, label);
+      await assertSocialMetadata(page, label);
       await assertNoAccessibilityViolations(page, label);
       await context.close();
       await assertJavaScriptDisabled(browser, viewport, label);

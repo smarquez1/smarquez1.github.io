@@ -34,3 +34,5 @@ Load the task-specific context through `docs/README.md`; use project skills for 
 ## Verification
 
 Before finalizing implementation, verify the changed scope proportionally: build, semantic HTML, keyboard behavior, accessibility, responsive output, JavaScript-disabled behavior, and performance, SEO, or deployment behavior when affected. Use `quality-reviewer` for independent evidence.
+
+When approved hero positioning changes, review the social metadata, alt text, preview image, and `docs/seo/social-preview.md` before completion. Update them together or document why the existing social preview remains intentional.

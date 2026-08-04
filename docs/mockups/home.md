@@ -20,7 +20,7 @@ Create a dark-first, minimalist, technical portfolio home screen for Sergio Marq
 
 - Use a typographic hero with one primary action and one contact action.
 - Make the dark theme the approved visual direction for the initial mockup.
-- Use the headline “I turn hard product problems into software that ships.” to communicate energy, judgment, and execution.
+- Use the headline “I’m a product engineer who connects product discovery, systems design, and full-stack delivery.” to establish a personal, specific engineering profile.
 - Use supporting copy that names the Rails, SaaS, API, and full-stack focus and the path from product discovery to production ownership.
 - Use a technical system map to represent the public portfolio sample without inventing a product case study.
 - Use a vertical career timeline with dates, company or work context, role, and concise detail.

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">Sergio Marquez | Senior Product Engineer</title>
-  <desc id="description">I turn hard product problems into software that ships.</desc>
+  <desc id="description">Product engineering for SaaS platforms, APIs, and complex workflows.</desc>
   <rect width="1200" height="630" fill="#0b0d10" />
   <path d="M0 0h1200v18H0z" fill="#5b7cfa" />
   <path d="M1010 0h190v630h-190z" fill="#11151b" />
@@ -8,11 +8,11 @@
   <circle cx="1090" cy="74" r="8" fill="#5b7cfa" />
   <circle cx="1132" cy="230" r="8" fill="#5b7cfa" />
   <circle cx="1048" cy="386" r="8" fill="#5b7cfa" />
-  <text x="86" y="112" fill="#a9b3c2" font-family="monospace" font-size="22" font-weight="700" letter-spacing="3">SERGIO MARQUEZ / 01</text>
-  <text x="86" y="260" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">Senior Product</text>
-  <text x="86" y="338" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">Engineer</text>
-  <rect x="86" y="388" width="84" height="6" fill="#5b7cfa" />
-  <text x="86" y="462" fill="#d6dce5" font-family="Arial, Helvetica, sans-serif" font-size="30">I turn hard product problems</text>
-  <text x="86" y="506" fill="#d6dce5" font-family="Arial, Helvetica, sans-serif" font-size="30">into software that ships.</text>
-  <text x="86" y="566" fill="#7f8a99" font-family="monospace" font-size="18" letter-spacing="1">RAILS  /  SAAS  /  APIS  /  FULL-STACK WEB</text>
+  <text x="86" y="112" fill="#a9b3c2" font-family="monospace" font-size="22" font-weight="700" letter-spacing="3">SERGIO MARQUEZ</text>
+  <text x="86" y="226" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">Product engineering for</text>
+  <text x="86" y="300" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">SaaS platforms, APIs,</text>
+  <text x="86" y="374" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">and complex workflows.</text>
+  <rect x="86" y="414" width="84" height="6" fill="#5b7cfa" />
+  <text x="86" y="484" fill="#d6dce5" font-family="Arial, Helvetica, sans-serif" font-size="28">Senior Product Engineer / Ruby on Rails</text>
+  <text x="86" y="566" fill="#7f8a99" font-family="monospace" font-size="18" letter-spacing="1">SINCE 2011  /  SAAS  /  APIS  /  FULL-STACK WEB</text>
 </svg>
