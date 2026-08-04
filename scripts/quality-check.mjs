@@ -1,12 +1,26 @@
 import { spawn } from 'node:child_process';
+import { createServer } from 'node:net';
 
 import AxeBuilder from '@axe-core/playwright';
 import { chromium } from 'playwright';
 
-const baseUrl = 'http://127.0.0.1:4173/';
-const preview = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4173'], {
-  stdio: 'ignore',
-});
+const getAvailablePort = () =>
+  new Promise((resolve, reject) => {
+    const server = createServer();
+    server.once('error', reject);
+    server.listen(0, '127.0.0.1', () => {
+      const { port } = server.address();
+      server.close(() => resolve(port));
+    });
+  });
+
+const port = await getAvailablePort();
+const baseUrl = `http://127.0.0.1:${port}/`;
+const preview = spawn(
+  'npm',
+  ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(port), '--strictPort'],
+  { stdio: 'ignore' },
+);
 
 const waitForPreview = async () => {
   for (let attempt = 0; attempt < 30; attempt += 1) {
@@ -35,18 +49,65 @@ const assertJavaScriptDisabled = async (browser, viewport, label) => {
   const page = await context.newPage();
 
   await page.goto(baseUrl, { waitUntil: 'networkidle' });
-  if (!(await page.getByRole('main').isVisible())) {
-    throw new Error(`${label} JavaScript-disabled check could not find the main landmark.`);
+  for (const landmark of ['banner', 'main', 'contentinfo']) {
+    if (!(await page.getByRole(landmark).isVisible())) {
+      throw new Error(
+        `${label} JavaScript-disabled check could not find the ${landmark} landmark.`,
+      );
+    }
   }
-  if (
-    !(await page
-      .getByRole('heading', { name: 'I turn hard product problems into software that ships.' })
-      .isVisible())
-  ) {
-    throw new Error(`${label} JavaScript-disabled check could not find the hero heading.`);
+
+  for (const heading of [
+    'I turn hard product problems into software that ships.',
+    'About / 01',
+    'Experience / 02',
+    'Technical focus / 03',
+    'Let’s build something useful.',
+  ]) {
+    if (!(await page.getByRole('heading', { name: heading }).isVisible())) {
+      throw new Error(`${label} JavaScript-disabled check could not find the ${heading} heading.`);
+    }
   }
 
   await context.close();
+};
+
+const assertSemanticShell = async (page, label) => {
+  if ((await page.getByRole('main').count()) !== 1) {
+    throw new Error(`${label} page must have exactly one main landmark.`);
+  }
+  for (const landmark of ['banner', 'contentinfo']) {
+    if (!(await page.getByRole(landmark).isVisible())) {
+      throw new Error(`${label} page is missing the ${landmark} landmark.`);
+    }
+  }
+
+  const skipLink = page.getByRole('link', { name: 'Skip to main content' });
+  await skipLink.focus();
+  if (!(await skipLink.evaluate((element) => element === element.ownerDocument.activeElement))) {
+    throw new Error(`${label} skip link is not keyboard focusable.`);
+  }
+  await page.keyboard.press('Enter');
+  if (!page.url().endsWith('#main-content')) {
+    throw new Error(`${label} skip link does not target the main landmark.`);
+  }
+
+  for (const name of ['About', 'Experience', 'Focus', 'Contact']) {
+    const link = page.getByRole('link', { name, exact: true });
+    await link.focus();
+    if (!(await link.evaluate((element) => element === element.ownerDocument.activeElement))) {
+      throw new Error(`${label} ${name} navigation link is not keyboard focusable.`);
+    }
+  }
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      globalThis.document.documentElement.scrollWidth >
+      globalThis.document.documentElement.clientWidth,
+  );
+  if (hasHorizontalOverflow) {
+    throw new Error(`${label} page has unexpected horizontal overflow.`);
+  }
 };
 
 try {
@@ -61,6 +122,7 @@ try {
       const context = await browser.newContext({ viewport });
       const page = await context.newPage();
       await page.goto(baseUrl, { waitUntil: 'networkidle' });
+      await assertSemanticShell(page, label);
       await assertNoAccessibilityViolations(page, label);
       await context.close();
       await assertJavaScriptDisabled(browser, viewport, label);
