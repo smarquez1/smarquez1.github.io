@@ -1,24 +1,58 @@
-# Hi, I'm Sergio 👋
+# Sergio Marquez Portfolio
 
-I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, APIs, and full-stack web platforms.
+The public portfolio of Sergio Marquez and a frontend quality sample focused on
+semantic HTML, accessibility, responsive design, performance, and SEO. Most of
+Sergio's production work is private; this site is the public implementation
+sample.
 
-I build and modernize web products from user discovery and systems design through full-stack implementation and production ownership. Over 14+ years, I've built products from the ground up, improved measured page-load performance by 20% to 80%, reduced CI workflows from approximately 40 minutes to 8 minutes, and helped modernize more than 500,000 lines of Ruby on Rails code.
+## Links
 
-I currently help build KaiPod Learning's microschool management platform as part of a four-developer team. Most of my professional engineering activity happens in private repositories.
-
-## Core Technologies
-
-Ruby on Rails · Ruby · JavaScript · Hotwire · React · PostgreSQL · Redis · Sidekiq · Stripe · AWS · CI/CD
-
-## What I Bring
-
-- End-to-end product engineering, from user research and problem discovery through production delivery.
-- Deep experience evolving large Ruby on Rails systems incrementally and safely.
-- Performance work grounded in measurement, query analysis, and practical frontend improvements.
-- Technical leadership through architecture, planning, mentoring, and code review.
-- AI-assisted development with human understanding, testing, and approval throughout.
-
-## Connect
-
+- [Live portfolio](https://smarquez1.github.io/)
+- [GitHub profile](https://github.com/smarquez1)
 - [LinkedIn](https://www.linkedin.com/in/marquezsd)
-- [Email](mailto:marquez.sergio.d@gmail.com)
+
+## Stack
+
+Vite, Tailwind CSS, Stimulus, semantic HTML5, GitHub Actions, and GitHub Pages.
+Quality tooling includes ESLint, Prettier, `html-validate`, `markdownlint-cli2`,
+Playwright, axe-core, and Lighthouse CI.
+
+The site is JavaScript-optional and uses no CSS CDN, React, TypeScript, Rails, or
+runtime AI model.
+
+## Development
+
+Requires Node.js 22 and npm.
+
+```sh
+npm install
+npm run dev
+```
+
+Useful checks:
+
+```sh
+npm run lint
+npm run format:check
+npm run quality:browser
+npm run quality:lighthouse
+```
+
+Build and preview the production output with `npm run build` and
+`npm run preview`.
+
+## Structure
+
+- `index.html`: semantic document shell
+- `src/partials/`: page sections composed at build time
+- `src/styles.css` and `src/main.js`: styles and progressive enhancement
+- `public/`: static assets
+- `docs/`: project, design, development, and deployment documentation
+- `.github/workflows/`: CI and GitHub Pages deployment
+
+Pushes to `main` deploy `dist/` to GitHub Pages. See
+[`docs/development.md`](docs/development.md) and
+[`docs/deployment.md`](docs/deployment.md) for details.
+
+The GitHub profile dashboard lives in the separate public repository
+[`smarquez1`](https://github.com/smarquez1/smarquez1).
