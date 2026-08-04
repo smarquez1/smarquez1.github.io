@@ -18,7 +18,7 @@ const port = await getAvailablePort();
 const baseUrl = `http://127.0.0.1:${port}/`;
 const preview = spawn(
   'npm',
-  ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(port), '--strictPort'],
+  ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(port), '--strictPort'],
   { stdio: 'ignore' },
 );
 
