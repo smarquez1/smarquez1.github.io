@@ -1,7 +1,7 @@
 # Hi, I'm Sergio 👋
 
-[![Deploy to GitHub Pages](https://github.com/smarquez1/smarquez1/actions/workflows/deploy.yml/badge.svg)](https://github.com/smarquez1/smarquez1/actions/workflows/deploy.yml)
-[![Continuous Integration](https://github.com/smarquez1/smarquez1/actions/workflows/ci.yml/badge.svg)](https://github.com/smarquez1/smarquez1/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/smarquez1/smarquez1.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/smarquez1/smarquez1.github.io/actions/workflows/deploy.yml)
+[![Continuous Integration](https://github.com/smarquez1/smarquez1.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/smarquez1/smarquez1.github.io/actions/workflows/ci.yml)
 
 I'm a Senior Product Engineer specializing in Ruby on Rails, SaaS, APIs, and full-stack web platforms.
 
@@ -9,7 +9,7 @@ I build and modernize web products from user discovery and systems design throug
 
 I currently help build KaiPod Learning's microschool management platform as part of a four-developer team. Most of my professional engineering activity happens in private repositories.
 
-[Explore my portfolio →](https://smarquez1.github.io/smarquez1/)
+[Explore my portfolio →](https://smarquez1.github.io/)
 
 ## Core Technologies
 

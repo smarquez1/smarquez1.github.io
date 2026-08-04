@@ -4,7 +4,7 @@ The portfolio deploys to GitHub Pages through GitHub Actions. The workflow build
 
 ## Public URL
 
-The expected public URL is [smarquez1.github.io/smarquez1](https://smarquez1.github.io/smarquez1/).
+The expected public URL is [smarquez1.github.io](https://smarquez1.github.io/). The source repository is `smarquez1/smarquez1.github.io`, the GitHub Pages user-site repository for the account.
 
 ## Workflow
 
