@@ -48,3 +48,8 @@ The portfolio should include:
 - Downloadable resume PDF.
 
 The resume PDF must be intentionally selected and reviewed before publishing. Use a stable, public-friendly filename and document where the source version comes from.
+
+The current published file is `public/assets/Sergio-Marquez-Resume.pdf`. It is
+the reviewed PDF supplied for this release. To update it, review the replacement
+PDF first, keep the stable filename, replace the public asset, and verify the
+download link in the production build.
