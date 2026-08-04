@@ -10,6 +10,17 @@ The portfolio uses a small Vite foundation with local Tailwind compilation and S
 4. Run `npm run build` to produce the static `dist/` output.
 5. Run `npm run preview` to inspect the production build locally.
 
+## HTML Partials
+
+The document shell lives in `index.html`. Page sections live in
+`src/partials/` and use simple `<!-- partial:name -->` markers in the shell.
+Vite resolves those markers during development and production builds through a
+small local plugin. The browser receives one complete semantic HTML document;
+no runtime template loader or JavaScript is required to render the sections.
+
+The HTML lint command builds the site first and validates `dist/index.html`, so
+the quality gate checks the composed document that will be deployed.
+
 ## Tooling
 
 | Area                         | Tool                                          |

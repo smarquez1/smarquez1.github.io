@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "npm run lint:js && npm run lint:html && npm run lint:md",
     "lint:js": "eslint .",
-    "lint:html": "html-validate index.html",
+    "lint:html": "npm run build && html-validate dist/index.html",
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"!node_modules/**\"",
     "quality:browser": "node scripts/quality-check.mjs",
     "quality:lighthouse": "lhci autorun",
