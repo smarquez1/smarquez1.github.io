@@ -1,80 +1,36 @@
-# Portfolio Project Instructions
+# Portfolio Agent Instructions
 
-## Purpose
+## Non-Negotiable Rules
 
-Build a public professional portfolio for Sergio Marquez that acts as both a career profile and a frontend quality sample.
-
-The site should communicate real professional experience while demonstrating semantic HTML, accessibility, responsive design, performance, SEO, and careful visual execution.
-
-## Working Model
-
-- Use a document-driven workflow: plan, mock up, document, then implement.
-- Create GitHub Issues for meaningful work units before implementation.
-- Keep work small, reviewable, and verifiable.
-- Do not start coding a screen before its mockups and acceptance criteria exist.
-- Treat the site itself as the primary public code sample.
-- Do not create commits or push changes automatically; do so only when the user explicitly requests it.
-
-## Project Planning
-
-- Use the public [Sergio Marquez Portfolio MVP project](https://github.com/users/smarquez1/projects/4) as the planning source for issue order and delivery status.
-- Add meaningful issues to the project before implementation and keep their status current.
-- Use the project fields `Status`, `Phase`, `Priority`, and `Order` to make dependencies and sequencing visible.
-- Follow the documented delivery sequence: Foundation, Content, Mockups, Build, Quality, then Deploy.
-- Treat GitHub issue numbers as work-unit identifiers, not as the implementation order.
-
-## Product Direction
-
-- Minimalist, technical, and polished.
-- Inspired by the precision of Vercel and the editorial energy of Basement Studio, without copying either brand.
-- Mobile-first and fully responsive across small and large screens.
-- Include light and dark modes.
-- Include small easter eggs and AI-themed interactions only when they preserve accessibility and performance.
-- Keep JavaScript progressive: the site must remain usable with JavaScript disabled.
-
-## Content Rules
-
-- Write all project documentation, site copy, issue content, comments, and public-facing text in clear US English.
-- Use real career information only.
-- Do not invent employers, titles, dates, metrics, technologies, outcomes, or project details.
+- Build a public portfolio for Sergio Marquez that is both a career profile and a frontend quality sample.
+- Use real, verified career information only. Do not invent employers, titles, dates, metrics, technologies, outcomes, or project details.
 - Do not expose private repository names, customer data, internal product names, implementation details, analytics, or secrets.
-- Professional work may be described through sanitized, factual summaries.
-- Be transparent that most production work is private and that this site is the public sample.
-- Mention AI usage as tooling and process support, not as authorship or decision ownership.
-- Keep the root `README.md` dedicated to Sergio's GitHub profile dashboard; put portfolio project documentation under `docs/` instead.
+- Write project documentation and public-facing copy in clear US English.
+- Keep the root `README.md` for Sergio's GitHub profile dashboard; put portfolio documentation in `docs/`.
+- Create and maintain a GitHub Issue for meaningful work before implementation. The [Portfolio MVP project](https://github.com/users/smarquez1/projects/4) is the source of current scope, status, and delivery order.
+- Do not start a screen until its mockup, handoff, and acceptance criteria are approved by a human.
+- Do not commit or push unless the user explicitly requests it.
 
-## Technical Principles
+## Product Baseline
 
-- HTML first. JavaScript enhances behavior but must not gate core content.
-- Use semantic landmarks and elements: `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, `ol`, `time`, `details`, and `summary` where appropriate.
-- Use accessible names, visible focus states, keyboard navigation, skip links, and strong color contrast.
-- Respect `prefers-reduced-motion`.
-- Optimize for Lighthouse scores across Performance, Accessibility, Best Practices, and SEO.
-- MVP stack: semantic HTML5, Tailwind CSS, modern JavaScript, Stimulus, and Vite.
-- Hosting and automation: GitHub Pages for hosting and GitHub Actions for CI and deployment.
-- Quality tooling: `html-validate`, `axe-core`, Lighthouse CI, Markdown linting, and link checking where useful.
-- Do not add Rails, React, TypeScript, or a runtime AI model to the MVP without a documented reason.
-- Use Tailwind CSS with a local build, not the CDN.
-- Prefer small vanilla JavaScript and Stimulus controllers for progressive enhancement.
-- Do not intentionally obfuscate production code. Keep the public source readable enough to support the portfolio-as-code-sample goal.
-- Production source maps are acceptable when they help reviewers inspect the work and do not expose secrets, private paths, or unpublished information.
-- Treat a cheap and fast model or any real AI API integration as a nice-to-have behind a secure serverless endpoint, never directly from GitHub Pages.
+- Build mobile-first, minimalist, technical, and polished experiences without copying other brands.
+- Use semantic HTML first. JavaScript may enhance behavior but must not gate core content or navigation.
+- Preserve accessible keyboard behavior, visible focus, sufficient contrast, and `prefers-reduced-motion` support.
+- Use the MVP stack: semantic HTML5, Tailwind CSS with a local build, modern JavaScript, Stimulus, Vite, GitHub Pages, and GitHub Actions.
+- Do not add Rails, React, TypeScript, a Tailwind CDN, or a runtime AI model without a documented reason and approval.
+- Keep public source readable. Any AI feature must preserve accessibility, performance, privacy, and human decision ownership.
 
-## Mockup Workflow
+## Agent Routing
 
-- Create image-based mockups before implementation.
-- Store approved mockups and source references under `docs/mockups/`.
-- Document the prompt, intent, responsive behavior, accessibility expectations, and accepted or rejected design decisions.
-- Mockups guide the implementation, but the final site must be built from semantic HTML and maintainable Tailwind.
+| Work                        | Agent              | Gate                                                           |
+| --------------------------- | ------------------ | -------------------------------------------------------------- |
+| Screen design and handoff   | `pencil-designer`  | Issue required; human approval required before implementation. |
+| Independent mockup critique | `mockup-reviewer`  | Does not approve or edit designs.                              |
+| Approved UI implementation  | `frontend-builder` | Approved mockup, handoff, and acceptance criteria required.    |
+| Independent quality audit   | `quality-reviewer` | Reports evidence and defects; does not fix or approve scope.   |
+
+Load the task-specific context through `docs/README.md`; use project skills for specialized review criteria.
 
 ## Verification
 
-Before finalizing implementation work, verify the relevant scope with:
-
-- HTML validation.
-- Keyboard navigation review.
-- Accessibility audit, preferably axe.
-- Lighthouse or Lighthouse CI.
-- Responsive review for mobile and desktop.
-- JavaScript-disabled review.
-- Build and deploy check for GitHub Pages.
+Before finalizing implementation, verify the changed scope proportionally: build, semantic HTML, keyboard behavior, accessibility, responsive output, JavaScript-disabled behavior, and performance, SEO, or deployment behavior when affected. Use `quality-reviewer` for independent evidence.

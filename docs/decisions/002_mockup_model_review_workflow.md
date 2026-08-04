@@ -1,46 +1,26 @@
-# Use Two AI Passes for Mockup Review
+# Use Independent Review for Mockup Approval
 
 - **Status:** Accepted
 - **Date:** 2026-08-03
 
 ## Decision
 
-Use two model passes for the portfolio mockups through OpenCode and the pen.dev MCP integration:
+Use distinct design and critique passes before human approval of a portfolio mockup:
 
-1. Use GPT-5.6 Luna for the initial design exploration and canvas construction.
-2. Use Kimi K3 for an independent second pass focused on critique, consistency, and refinement.
+1. A design agent creates the canvas and handoff.
+2. An independent review agent critiques visual quality, accessibility, responsive behavior, and implementation feasibility.
+3. A human approves the final mockup before implementation begins.
 
-The final design remains a human decision. Neither model is the source of truth for content, accessibility, or product direction.
+Current tool and model assignments belong in project-local OpenCode agent configuration, not this decision record.
 
 ## Context
 
-The portfolio needs strong visual direction while preserving semantic HTML, mobile-first behavior, accessibility, performance, and a restrained visual language. A second model can challenge the first pass and catch inconsistencies before implementation.
+The portfolio needs a distinctive visual direction while preserving semantic HTML, mobile-first behavior, accessibility, performance, and factual career content. Independent critique challenges initial assumptions before browser implementation locks in a direction.
 
-## Review Responsibilities
+## Consequences
 
-### GPT-5.6 Luna
-
-- Explore the initial layout and visual direction.
-- Create the first `.pen` structure through pen.dev.
-- Establish initial typography, color, spacing, and responsive ideas.
-
-### Kimi K3
-
-- Review the first pass independently.
-- Identify visual inconsistencies, weak hierarchy, accessibility risks, and mobile issues.
-- Suggest focused refinements without expanding the scope unnecessarily.
-
-### Human Review
-
-- Confirm the design matches the portfolio principles.
-- Reject invented content or unsupported career claims.
-- Validate that the design can become semantic, accessible HTML.
-- Approve the final mockup before implementation.
-
-## Constraints
-
-- Do not commit provider API keys or credentials.
-- Do not treat model output as verified career information.
-- Keep the design useful with JavaScript disabled.
-- Preserve the mobile-first requirement.
-- Keep approved `.pen` files and exported images versioned with the project when appropriate.
+- A mockup requires an issue, handoff, independent critique, and human approval before implementation.
+- The design agent does not modify production code.
+- The review agent reports risks but cannot approve, redesign, or broaden scope.
+- Model output is never verified career information or the source of product direction.
+- Approved source files and exports remain versioned with their notes when appropriate.

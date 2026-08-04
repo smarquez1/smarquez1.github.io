@@ -1,21 +1,15 @@
 # Mockups
 
-Store approved image mockups and their source notes here.
+Store approved mockup exports, source notes, and handoffs here. Use `pencil-designer` for design work and `mockup-reviewer` for independent critique.
 
 ## Workflow
 
-1. Define the screen goal.
-2. Generate visual mockup options with AI or a design tool.
-3. Review against content, accessibility, responsiveness, and implementation feasibility.
-4. Save approved exports in this directory.
-5. Document the prompt and design decisions.
-6. Convert the approved mockup into GitHub Issue acceptance criteria.
-
-## AI Review Passes
-
-- Use GPT-5.6 Luna for the initial design exploration through OpenCode and pen.dev.
-- Use Kimi K3 for an independent critique and refinement pass.
-- Keep human review as the final approval step.
+1. Define screen scope in a GitHub Issue.
+2. Create desktop and mobile frames with verified content.
+3. Document the handoff and request independent critique.
+4. Obtain human approval.
+5. Save approved exports and notes here.
+6. Convert approval into issue acceptance criteria before implementation.
 
 ## Naming
 
@@ -28,22 +22,12 @@ timeline_desktop_v1.png
 timeline_mobile_v1.png
 ```
 
-## Mockup Notes Template
+## Required Notes
 
-```markdown
-# <Screen> Mockup
-
-## Goal
-
-## Source Tool
-
-## Prompt
-
-## Accepted Decisions
-
-## Rejected Decisions
-
-## Accessibility Notes
-
-## Responsive Notes
-```
+- Screen goal and related issue.
+- Source tool and prompt.
+- Accepted and rejected decisions.
+- Accessibility and responsive behavior.
+- Interaction states and implementation risks.
+- Handoff acceptance criteria.
+- Approved implementation deviations, if any.

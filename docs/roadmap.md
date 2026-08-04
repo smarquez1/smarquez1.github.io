@@ -1,24 +1,12 @@
-# Roadmap
+# Initial MVP Scope
 
-Build the portfolio in documented, reviewable phases.
+> Status: Historical planning reference. Current delivery status, priority, and order live in the [Portfolio MVP project](https://github.com/users/smarquez1/projects/4).
 
-## MVP
+The MVP established a documented, accessible, mobile-first portfolio built with semantic HTML5, Tailwind, Stimulus, Vite, GitHub Actions, and GitHub Pages.
 
-| Phase         | Outcome                                                                                                         |
-| ------------- | --------------------------------------------------------------------------------------------------------------- |
-| Foundation    | Project instructions, docs, issue backlog, and repository structure.                                            |
-| Content       | Verified content model for hero, about, timeline, technical focus, process, and contact.                        |
-| Mockups       | Approved desktop and mobile images for the main page.                                                           |
-| Static Build  | Mobile-first semantic HTML5, Tailwind, Stimulus, Vite, light and dark modes, and progressive enhancement.       |
-| CI            | GitHub Actions with Markdown linting, builds, HTML validation, axe, Lighthouse CI, SEO, and performance checks. |
-| Quality       | Accessibility, SEO, performance, mobile and desktop responsive behavior, and JavaScript-disabled verification.  |
-| Reviewability | Keep public code readable, avoid intentional obfuscation, and decide whether production source maps are useful. |
-| Deploy        | GitHub Pages deployment through GitHub Actions with public status badges.                                       |
+Possible follow-up work belongs in GitHub Issues, not this document:
 
-## Nice To Have
-
-- `Ask Sergio` static profile Q&A experience with verified local responses.
-- Profile Q&A backed by a cheap and fast model through a secure serverless endpoint.
-- Additional easter eggs.
-- Case-study style write-up about building the portfolio.
-- Animated timeline refinements after baseline accessibility and performance pass.
+- Light-mode design and implementation after mockup approval.
+- Static verified profile Q&A or a secure server-side AI integration.
+- Additional non-essential easter eggs.
+- Case-study documentation and accessible timeline refinements.
