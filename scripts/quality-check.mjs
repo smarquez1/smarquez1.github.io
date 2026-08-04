@@ -129,7 +129,9 @@ const assertTimeline = async (page, label) => {
     throw new Error(`${label} timeline entries must provide native expandable details.`);
   }
   if ((await timeline.locator(':scope > li h3 a').count()) !== 6) {
-    throw new Error(`${label} timeline must link the six researched employers with public websites.`);
+    throw new Error(
+      `${label} timeline must link the six researched employers with public websites.`,
+    );
   }
 
   const contributionNotes = timeline.getByText('Contribution notes', { exact: true });
