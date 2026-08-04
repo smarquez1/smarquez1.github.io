@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000 --open",
     "build": "vite build",
     "preview": "BROWSER=\"Google Chrome\" vite preview --open",
     "lint": "npm run lint:js && npm run lint:html && npm run lint:md",
