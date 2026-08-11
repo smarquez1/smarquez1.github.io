@@ -2,7 +2,7 @@
 
 ## Revision
 
-Copy review v3, prepared for issue #28. The revised copy preserves the approved desktop and mobile compositions in `home.pen`.
+Impact visibility review, approved for issue #29. The approved Pencil frames are `Issue #29 Review Desktop` and `Issue #29 Review Mobile` in `home.pen`.
 
 ## Goal
 
@@ -36,6 +36,11 @@ Create a dark-first, minimalist, technical portfolio home screen for Sergio Marq
 - Preserve the information density of the current career record: dates, work arrangement, role, contribution summary, expandable notes, technologies, and the complete eight-role timeline.
 - Preserve the current timeline composition: date and work arrangement column, vertical marker rail, company card, company mark, role, status/count indicator, summary, and contribution disclosure.
 - Keep the JavaScript-disabled behavior as an implementation requirement, not visible footer copy.
+- Keep About focused on how Sergio works and avoid repeating the hero positioning.
+- Surface verified KaiPod workflow evidence and Decisiv outcomes in the visible timeline summaries.
+- Keep recurring timeline metadata and disclosure labels at 12px or larger across desktop and mobile.
+- Present private production work through verified decisions and outcomes without exposing sensitive product details.
+- Keep the footer factual and remove implementation-status messaging.
 
 ## Rejected Decisions
 
@@ -66,6 +71,7 @@ Create a dark-first, minimalist, technical portfolio home screen for Sergio Marq
 - Desktop keeps the timeline's date column, marker rail, and large cards; mobile stacks date metadata above each card while retaining the same card hierarchy.
 - Technical focus changes from a two-column section to a single-column list.
 - The mobile hero is single-column, with full-width actions and no decorative panel competing with the positioning statement.
+- At intermediate widths, timeline metadata remains stacked above each card until the desktop date-column layout has enough room at the `sm` breakpoint.
 
 ## Implementation Risks
 
@@ -73,6 +79,7 @@ Create a dark-first, minimalist, technical portfolio home screen for Sergio Marq
 - Dark mode needs a deliberate visual pass rather than simple color inversion.
 - The mobile menu must remain usable with JavaScript disabled or provide a semantic fallback.
 - Copy length may require a second content pass after implementation to preserve readable line lengths at intermediate widths.
+- The current implementation retains the full mobile navigation link list instead of the approved compact menu treatment; resolve this in a separate navigation work unit rather than changing issue #29 scope silently.
 
 ## Copy Source Notes
 

@@ -143,6 +143,34 @@ const assertTimeline = async (page, label) => {
   ) {
     throw new Error(`${label} timeline details are not keyboard focusable.`);
   }
+
+  for (const text of [
+    'Turns operational needs from founders and teachers into role-based workflows across web and Hotwire Native applications.',
+    'Improved affected page-load times by 20% to 80%, cut CI feedback from approximately 40 minutes to 8 minutes, and led the modernization of more than 500,000 lines of Rails code.',
+  ]) {
+    if (!(await timeline.getByText(text, { exact: true }).isVisible())) {
+      throw new Error(`${label} timeline must expose verified impact: ${text}`);
+    }
+  }
+
+  const undersizedMetadata = await timeline
+    .locator(
+      '.timeline-date, .timeline-industry, .timeline-status, .timeline-number, .timeline-details > summary, .timeline-tech li',
+    )
+    .evaluateAll((elements) =>
+      elements
+        .filter((element) => Number.parseFloat(globalThis.getComputedStyle(element).fontSize) < 12)
+        .map((element) => ({
+          className: element.className,
+          fontSize: globalThis.getComputedStyle(element).fontSize,
+          text: element.textContent?.trim(),
+        })),
+    );
+  if (undersizedMetadata.length > 0) {
+    throw new Error(
+      `${label} timeline metadata must be at least 12px:\n${JSON.stringify(undersizedMetadata, null, 2)}`,
+    );
+  }
 };
 
 const assertSocialMetadata = async (page, label) => {
@@ -196,6 +224,7 @@ try {
   try {
     for (const [label, viewport] of [
       ['desktop', { width: 1440, height: 900 }],
+      ['intermediate', { width: 768, height: 1024 }],
       ['mobile', { width: 390, height: 844 }],
     ]) {
       const context = await browser.newContext({ viewport });
