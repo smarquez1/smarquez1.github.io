@@ -5,7 +5,7 @@ The homepage uses a branded `1200x630` PNG for Open Graph and Twitter/X link pre
 ## Source
 
 - Source: `docs/seo/social-preview.svg`
-- Deployed asset: `public/assets/social-preview-v2.png`
+- Deployed asset: `public/assets/social-preview-v3.png`
 - Format: PNG, generated from the SVG with `rsvg-convert`
 - Design: dark-first typographic composition with Sergio's name, role, positioning statement, and public technical focus
 
@@ -13,7 +13,7 @@ The image contains no private repository names, customer information, or unsuppo
 
 ## Accepted Decisions
 
-- Align the social card with the homepage positioning: “Product engineering for SaaS platforms, APIs, and complex workflows.”
+- Align the social card with the homepage positioning: “I build SaaS products around real workflows.”
 - Remove the obsolete `/ 01` suffix from Sergio's name.
 - Preserve the established near-black, cobalt, white, and muted-neutral visual system.
 - Keep the card typographic and readable at small sharing-preview sizes.

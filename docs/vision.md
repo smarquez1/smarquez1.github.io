@@ -17,7 +17,7 @@ The portfolio should help recruiters, engineering managers, and teams quickly un
 
 ## Positioning
 
-Senior Product Engineer focused on Ruby on Rails, SaaS, APIs, and full-stack web platforms.
+Senior Product Engineer focused on SaaS products, Ruby on Rails, APIs, and full-stack web platforms.
 
 ## Experience Strategy
 

@@ -58,7 +58,7 @@ const assertJavaScriptDisabled = async (browser, viewport, label) => {
   }
 
   for (const heading of [
-    'I’m a product engineer who connects product discovery, systems design, and full-stack delivery.',
+    'I build SaaS products around real workflows.',
     '01 / About',
     '02 / Experience',
     '03 / Technical focus',
@@ -147,10 +147,10 @@ const assertTimeline = async (page, label) => {
 
 const assertSocialMetadata = async (page, label) => {
   const expectedDescription =
-    'Product engineering for SaaS platforms, APIs, and complex workflows.';
-  const expectedImage = 'https://smarquez1.github.io/assets/social-preview-v2.png';
+    'Senior Product Engineer specializing in SaaS products, Ruby on Rails, APIs, and full-stack web platforms.';
+  const expectedImage = 'https://smarquez1.github.io/assets/social-preview-v3.png';
   const expectedAlt =
-    'Sergio Marquez, Senior Product Engineer. Product engineering for SaaS platforms, APIs, and complex workflows.';
+    'Sergio Marquez, Senior Product Engineer. Building SaaS products around real workflows with Ruby on Rails, APIs, and full-stack web platforms.';
 
   for (const [selector, expected] of [
     ['link[rel="canonical"]', 'https://smarquez1.github.io/'],
@@ -178,7 +178,7 @@ const assertSocialMetadata = async (page, label) => {
         image.addEventListener('error', () =>
           reject(new Error('Social preview image failed to load.')),
         );
-        image.src = '/assets/social-preview-v2.png';
+        image.src = '/assets/social-preview-v3.png';
       }),
   );
 
