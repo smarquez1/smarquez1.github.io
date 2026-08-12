@@ -42,6 +42,26 @@ const activeAnimationCount = (details) =>
         element.getAnimations().filter(({ playState }) => playState === 'running').length,
     );
 
+const openingVisualState = (details) =>
+  details.locator(':scope > [data-disclosure-content]').evaluate((element) => {
+    const style = globalThis.getComputedStyle(element);
+
+    return {
+      height: element.getBoundingClientRect().height,
+      opacity: Number.parseFloat(style.opacity),
+      overflow: style.overflow,
+      scrollHeight: element.scrollHeight,
+    };
+  });
+
+const assertOpeningVisualState = async (details, message) => {
+  const state = await openingVisualState(details);
+
+  if (state.height >= state.scrollHeight || state.opacity >= 1 || state.overflow !== 'hidden') {
+    throw new Error(`${message}\nReceived ${JSON.stringify(state)}`);
+  }
+};
+
 const activeClosingAnimationCount = (page) =>
   page
     .locator('[data-disclosure-ghost]')
@@ -52,6 +72,37 @@ const activeClosingAnimationCount = (page) =>
         0,
       ),
     );
+
+const assertClosingVisualState = async (details, message) => {
+  await details.evaluate(
+    () =>
+      new Promise((resolve) =>
+        globalThis.requestAnimationFrame(() => globalThis.requestAnimationFrame(resolve)),
+      ),
+  );
+  const state = await details.locator('+ [data-disclosure-ghost]').evaluate((element) => {
+    const style = globalThis.getComputedStyle(element);
+
+    return {
+      followsDisclosure: element.previousElementSibling?.matches('details') ?? false,
+      height: element.getBoundingClientRect().height,
+      opacity: Number.parseFloat(style.opacity),
+      overflow: style.overflow,
+      position: style.position,
+      scrollHeight: element.scrollHeight,
+    };
+  });
+
+  if (
+    !state.followsDisclosure ||
+    state.height >= state.scrollHeight ||
+    state.opacity >= 1 ||
+    state.overflow !== 'hidden' ||
+    state.position === 'fixed'
+  ) {
+    throw new Error(`${message}\nReceived ${JSON.stringify(state)}`);
+  }
+};
 
 const assertVisibleFocus = async (summary, message) => {
   const focus = await summary.evaluate((element) => {
@@ -230,6 +281,10 @@ const assertTimeline = async (page, label) => {
   if ((await activeAnimationCount(disclosure)) === 0) {
     throw new Error(`${label} timeline opening must produce an active content animation.`);
   }
+  await assertOpeningVisualState(
+    disclosure,
+    `${label} timeline opening must begin clipped below its expanded height and opacity.`,
+  );
   await assertVisibleFocus(
     timelineSummary,
     `${label} timeline disclosure must retain a visible focus indicator while opening.`,
@@ -249,6 +304,10 @@ const assertTimeline = async (page, label) => {
   if ((await activeClosingAnimationCount(page)) === 0) {
     throw new Error(`${label} timeline closing must produce an active content animation.`);
   }
+  await assertClosingVisualState(
+    disclosure,
+    `${label} timeline closing must mirror opening with clipped, fading content in flow.`,
+  );
   await assertVisibleFocus(
     timelineSummary,
     `${label} timeline disclosure must retain visible focus while closing.`,
@@ -280,6 +339,10 @@ const assertTimeline = async (page, label) => {
     if ((await activeAnimationCount(contribution)) === 0) {
       throw new Error(`${label} contribution ${index + 1} opening must actively animate.`);
     }
+    await assertOpeningVisualState(
+      contribution,
+      `${label} contribution ${index + 1} opening must begin clipped below its expanded height and opacity.`,
+    );
     await assertVisibleFocus(
       summary,
       `${label} contribution ${index + 1} must show visible focus while opening.`,
@@ -293,6 +356,10 @@ const assertTimeline = async (page, label) => {
     if ((await activeClosingAnimationCount(page)) === 0) {
       throw new Error(`${label} contribution ${index + 1} closing must actively animate.`);
     }
+    await assertClosingVisualState(
+      contribution,
+      `${label} contribution ${index + 1} closing must mirror opening with clipped, fading content in flow.`,
+    );
     await page.waitForTimeout(220);
   }
 

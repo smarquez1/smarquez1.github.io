@@ -8,3 +8,4 @@ dist/
 .lighthouseci/
 *.txt
 !public/robots.txt
+test-results/.last-run.json

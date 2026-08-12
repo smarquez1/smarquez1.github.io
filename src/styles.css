@@ -190,6 +190,11 @@
     content: '−';
   }
 
+  [data-disclosure-content],
+  [data-disclosure-ghost] {
+    overflow: hidden;
+  }
+
   .timeline-detail-body {
     @apply mt-4 space-y-5 text-sm leading-6 text-muted;
   }
