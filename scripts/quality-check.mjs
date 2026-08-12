@@ -16,6 +16,21 @@ const getAvailablePort = () =>
 
 const port = await getAvailablePort();
 const baseUrl = `http://127.0.0.1:${port}/`;
+const viewports = [
+  ['desktop', { width: 1440, height: 900 }],
+  ['intermediate', { width: 768, height: 1024 }],
+  ['mobile', { width: 390, height: 844 }],
+];
+const expectedTimelineDateRanges = [
+  ['2024-05'],
+  ['2021-08', '2024-05'],
+  ['2017-07', '2021-08'],
+  ['2016-05', '2017-05'],
+  ['2015-02', '2016-04'],
+  ['2013-06', '2015-02'],
+  ['2012-09', '2013-06'],
+  ['2011-08', '2012-09'],
+];
 const preview = spawn(
   'npm',
   ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(port), '--strictPort'],
@@ -41,6 +56,13 @@ const assertNoAccessibilityViolations = async (page, label) => {
     throw new Error(
       `${label} accessibility violations:\n${JSON.stringify(results.violations, null, 2)}`,
     );
+  }
+};
+
+const assertCount = async (locator, expected, message) => {
+  const actual = await locator.count();
+  if (actual !== expected) {
+    throw new Error(`${message} Expected ${expected}, received ${actual}.`);
   }
 };
 
@@ -73,9 +95,11 @@ const assertJavaScriptDisabled = async (browser, viewport, label) => {
 };
 
 const assertSemanticShell = async (page, label) => {
-  if ((await page.getByRole('main').count()) !== 1) {
-    throw new Error(`${label} page must have exactly one main landmark.`);
-  }
+  await assertCount(
+    page.getByRole('main'),
+    1,
+    `${label} page must have exactly one main landmark.`,
+  );
   for (const landmark of ['banner', 'contentinfo']) {
     if (!(await page.getByRole(landmark).isVisible())) {
       throw new Error(`${label} page is missing the ${landmark} landmark.`);
@@ -112,27 +136,39 @@ const assertSemanticShell = async (page, label) => {
 
 const assertTimeline = async (page, label) => {
   const disclosure = page.locator('#experience > details.timeline-disclosure');
-  if ((await disclosure.count()) !== 1) {
-    throw new Error(`${label} experience section must provide one expandable timeline.`);
-  }
+  await assertCount(
+    disclosure,
+    1,
+    `${label} experience section must provide one expandable timeline.`,
+  );
   const timeline = disclosure.locator(':scope > ol');
-  if ((await timeline.locator(':scope > li').count()) !== 8) {
-    throw new Error(`${label} timeline must contain eight career entries.`);
-  }
-  if ((await timeline.locator(':scope > li time').count()) !== 8) {
-    throw new Error(`${label} timeline entries must use time elements for their dates.`);
-  }
-  if ((await timeline.locator(':scope > li article').count()) !== 8) {
-    throw new Error(`${label} timeline entries must be articles.`);
-  }
-  if ((await timeline.locator(':scope > li details').count()) !== 8) {
-    throw new Error(`${label} timeline entries must provide native expandable details.`);
-  }
-  if ((await timeline.locator(':scope > li h3 a').count()) !== 6) {
+  const entries = timeline.locator(':scope > li');
+  await assertCount(entries, 8, `${label} timeline must contain eight career entries.`);
+  const actualDateRanges = await timeline
+    .locator(':scope > li')
+    .evaluateAll((entries) =>
+      entries.map((entry) =>
+        [...entry.querySelectorAll('.timeline-date time')].map((time) =>
+          time.getAttribute('datetime'),
+        ),
+      ),
+    );
+  if (JSON.stringify(actualDateRanges) !== JSON.stringify(expectedTimelineDateRanges)) {
     throw new Error(
-      `${label} timeline must link the six researched employers with public websites.`,
+      `${label} timeline date ranges must match verified career dates.\nExpected ${JSON.stringify(expectedTimelineDateRanges)}\nReceived ${JSON.stringify(actualDateRanges)}`,
     );
   }
+  await assertCount(entries.locator('article'), 8, `${label} timeline entries must be articles.`);
+  await assertCount(
+    entries.locator('details'),
+    8,
+    `${label} timeline entries must provide native expandable details.`,
+  );
+  await assertCount(
+    entries.locator('h3 a'),
+    6,
+    `${label} timeline must link the six researched employers with public websites.`,
+  );
 
   const contributionNotes = timeline.getByText('Contribution notes', { exact: true });
   await contributionNotes.first().focus();
@@ -222,17 +258,13 @@ try {
   const browser = await chromium.launch();
 
   try {
-    for (const [label, viewport] of [
-      ['desktop', { width: 1440, height: 900 }],
-      ['intermediate', { width: 768, height: 1024 }],
-      ['mobile', { width: 390, height: 844 }],
-    ]) {
+    for (const [label, viewport] of viewports) {
       const context = await browser.newContext({ viewport });
       const page = await context.newPage();
       await page.goto(baseUrl, { waitUntil: 'networkidle' });
       await assertSemanticShell(page, label);
       await assertTimeline(page, label);
-      await assertSocialMetadata(page, label);
+      if (label === 'desktop') await assertSocialMetadata(page, label);
       await assertNoAccessibilityViolations(page, label);
       await context.close();
       await assertJavaScriptDisabled(browser, viewport, label);
