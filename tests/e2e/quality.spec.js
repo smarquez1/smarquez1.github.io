@@ -144,6 +144,28 @@ const assertJavaScriptDisabled = async (browser, baseUrl, viewport, label) => {
     }
   }
 
+  const mobileMenu = page.locator('header details');
+  if (viewport.width < 640) {
+    const menuSummary = mobileMenu.locator('summary');
+    if (!(await menuSummary.isVisible())) {
+      throw new Error(`${label} JavaScript-disabled mobile menu control must remain available.`);
+    }
+    await menuSummary.focus();
+    await page.keyboard.press('Enter');
+    if (!(await mobileMenu.evaluate((element) => element.open))) {
+      throw new Error(`${label} JavaScript-disabled mobile menu must open natively with Enter.`);
+    }
+    for (const name of ['About', 'Experience', 'Focus', 'Contact']) {
+      if (!(await mobileMenu.getByRole('link', { name, exact: true }).isVisible())) {
+        throw new Error(`${label} JavaScript-disabled mobile menu must expose ${name}.`);
+      }
+    }
+    await page.keyboard.press('Space');
+    if (await mobileMenu.evaluate((element) => element.open)) {
+      throw new Error(`${label} JavaScript-disabled mobile menu must close natively with Space.`);
+    }
+  }
+
   const timelineEntries = page.locator('#experience .timeline-item');
   await assertCount(
     timelineEntries,
@@ -212,11 +234,57 @@ const assertSemanticShell = async (page, label) => {
     throw new Error(`${label} skip link does not target the main landmark.`);
   }
 
+  const mobileMenu = page.locator('header details');
+  const identity = page.getByRole('banner').getByRole('link', {
+    name: 'Sergio Marquez',
+    exact: true,
+  });
+  const compactIdentity = identity.locator('span[aria-hidden="true"]');
+  if (await mobileMenu.isVisible()) {
+    if ((await compactIdentity.innerText()).trim() !== 'SM / 01') {
+      throw new Error(`${label} mobile identity must match the approved compact treatment.`);
+    }
+    const menuSummary = mobileMenu.locator('summary');
+    const targetSize = await menuSummary.evaluate((element) => {
+      const { width, height } = element.getBoundingClientRect();
+      return { width, height };
+    });
+    if (targetSize.width < 44 || targetSize.height < 44) {
+      throw new Error(`${label} mobile menu control must provide a practical 44px touch target.`);
+    }
+    await menuSummary.focus();
+    await assertVisibleFocus(menuSummary, `${label} mobile menu control must show visible focus.`);
+    await page.keyboard.press('Enter');
+    if (!(await mobileMenu.evaluate((element) => element.open))) {
+      throw new Error(`${label} mobile menu must open with Enter.`);
+    }
+    if ((await menuSummary.innerText()).trim() !== 'CLOSE') {
+      throw new Error(`${label} expanded mobile menu must expose an accurate close action.`);
+    }
+  }
+
+  const activeNavigation = page.getByRole('navigation', {
+    name: (await mobileMenu.isVisible())
+      ? 'Mobile primary navigation'
+      : 'Desktop primary navigation',
+  });
+
   for (const name of ['About', 'Experience', 'Focus', 'Contact']) {
-    const link = page.getByRole('link', { name, exact: true });
+    const link = activeNavigation.getByRole('link', { name, exact: true });
     await link.focus();
     if (!(await link.evaluate((element) => element === element.ownerDocument.activeElement))) {
       throw new Error(`${label} ${name} navigation link is not keyboard focusable.`);
+    }
+  }
+
+  if (await mobileMenu.isVisible()) {
+    await mobileMenu.locator('summary').focus();
+    await page.keyboard.press('Space');
+    if (await mobileMenu.evaluate((element) => element.open)) {
+      throw new Error(`${label} mobile menu must close with Space.`);
+    }
+    if ((await mobileMenu.locator('summary').innerText()).trim() !== 'MENU') {
+      throw new Error(`${label} collapsed mobile menu must expose an accurate menu action.`);
     }
   }
 
@@ -452,8 +520,9 @@ const assertSocialMetadata = async (page, label) => {
 };
 
 const assertSmoothScrolling = async (page, label) => {
+  const navigation = page.getByRole('navigation', { name: 'Desktop primary navigation' });
   for (const name of ['About', 'Experience', 'Focus', 'Contact']) {
-    const href = await page.getByRole('link', { name, exact: true }).getAttribute('href');
+    const href = await navigation.getByRole('link', { name, exact: true }).getAttribute('href');
     if (!href?.startsWith('#')) {
       throw new Error(`${label} ${name} navigation link must be an in-page fragment.`);
     }
