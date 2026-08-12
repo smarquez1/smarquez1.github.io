@@ -1,10 +1,10 @@
-# Portfolio Vision
+# Personal Website Vision
 
-Create a public portfolio that feels like a polished product experience, not a static resume.
+Create a personal website that feels like a polished product experience, not a static resume.
 
 ## Outcome
 
-The portfolio should help recruiters, engineering managers, and teams quickly understand Sergio's product engineering profile while also serving as a public frontend code sample.
+The personal website should help recruiters, engineering managers, and teams quickly understand Sergio's product engineering profile while also serving as a public frontend code sample.
 
 ## Audience
 
@@ -21,7 +21,7 @@ Senior Product Engineer focused on SaaS products, Ruby on Rails, APIs, and full-
 
 ## Experience Strategy
 
-Most production work is private. The site should say that clearly and use the portfolio itself as the public implementation sample.
+Most production work is private. The site should say that clearly and use the personal website itself as the public implementation sample.
 
 Sanitized career content can still show real experience through company names, roles, dates, themes, and verified outcomes.
 

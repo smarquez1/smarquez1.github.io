@@ -14,7 +14,7 @@ Pencil / pen.dev, created through OpenCode.
 
 ## Prompt
 
-Create a dark-first, minimalist, technical portfolio home screen for Sergio Marquez, a Senior Product Engineer focused on Ruby on Rails, SaaS, APIs, and full-stack web platforms. Use a restrained near-black, white, neutral, and cobalt palette; strong Geist headings; Inter body copy; Geist Mono metadata; and a factual career-record structure. Provide desktop and mobile compositions. Keep all copy factual, semantic-HTML friendly, accessible, and usable without JavaScript.
+Create a dark-first, minimalist, technical personal website home screen for Sergio Marquez, a Senior Product Engineer focused on Ruby on Rails, SaaS, APIs, and full-stack web platforms. Use a restrained near-black, white, neutral, and cobalt palette; strong Geist headings; Inter body copy; Geist Mono metadata; and a factual career-record structure. Provide desktop and mobile compositions. Keep all copy factual, semantic-HTML friendly, accessible, and usable without JavaScript.
 
 ## Accepted Decisions
 
@@ -22,7 +22,7 @@ Create a dark-first, minimalist, technical portfolio home screen for Sergio Marq
 - Make the dark theme the approved visual direction for the initial mockup.
 - Use the headline “I build SaaS products around real workflows.” to establish a concise, mobile-friendly product engineering profile.
 - Use supporting copy that presents Sergio as a Senior Product Engineer specializing in Ruby on Rails, APIs, and full-stack delivery.
-- Use a technical system map to represent the public portfolio sample without inventing a product case study.
+- Use a technical system map to represent the public personal website sample without inventing a product case study.
 - Use a vertical career timeline with dates, company or work context, role, and concise detail.
 - Reserve cobalt for links, active timeline state, and the primary action.
 - Keep the desktop layout spacious and the mobile layout single-column with full-width actions.
