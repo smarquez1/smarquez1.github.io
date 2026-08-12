@@ -43,7 +43,7 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Run accessibility and no-JavaScript checks
+      - name: Run Playwright end-to-end checks
         run: npm run quality:browser
 
       - name: Run Lighthouse CI

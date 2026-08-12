@@ -13,8 +13,8 @@ The workflow installs the locked dependency set with `npm ci`, then runs:
 - `html-validate` for the page markup.
 - Markdown linting for project documentation.
 - The production Vite build.
-- `axe-core` at desktop and mobile viewport sizes.
-- A Playwright smoke check with JavaScript disabled at desktop and mobile viewport sizes.
+- Playwright Test quality checks at desktop, intermediate, and mobile viewport sizes.
+- `axe-core`, semantic structure, keyboard navigation, reduced motion, social metadata, and JavaScript-disabled checks through Playwright Test.
 - Lighthouse CI assertions for Performance, Accessibility, Best Practices, and SEO.
 
 The deployment workflow repeats the lint and build checks before publishing the
@@ -24,10 +24,10 @@ deployed GitHub Pages site.
 
 ## Local Commands
 
-Run `npm run build` first, then use `npm run quality:browser` for the axe and
-JavaScript-disabled checks. Run `npm run quality:lighthouse` for the Lighthouse
-CI audit. Both commands audit the local Vite preview server and fail with the
-specific violations or assertions that need attention.
+Run `npm test` for Vitest unit tests, then use `npm run quality:browser` for
+Playwright Test end-to-end quality checks. Run `npm run quality:lighthouse` for
+the Lighthouse CI audit. Both browser commands manage a local Vite development
+server and fail with the specific violations or assertions that need attention.
 
 ## Release Review Matrix
 

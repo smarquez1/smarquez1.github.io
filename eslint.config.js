@@ -15,7 +15,7 @@ export default [
     },
   },
   {
-    files: ['vite.config.js', 'eslint.config.js'],
+    files: ['vite.config.js', 'vitest.config.js', 'playwright.config.js', 'eslint.config.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -23,7 +23,7 @@ export default [
     },
   },
   {
-    files: ['scripts/**/*.mjs', '.lighthouserc.cjs'],
+    files: ['scripts/**/*.js', '.lighthouserc.cjs', 'tests/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

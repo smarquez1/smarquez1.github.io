@@ -63,7 +63,7 @@
   }
 
   .timeline-disclosure {
-    @apply mt-10;
+    @apply mt-0;
   }
 
   .timeline-disclosure > summary {
@@ -85,6 +85,10 @@
 
   .timeline-disclosure[open] > summary::after {
     content: '−';
+  }
+
+  .timeline-list--remaining {
+    @apply mt-0;
   }
 
   .timeline-list::before {

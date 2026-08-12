@@ -9,6 +9,7 @@ The portfolio uses a small Vite foundation with local Tailwind compilation and S
 3. Run `npm run lint` to check JavaScript, HTML, and Markdown.
 4. Run `npm run build` to produce the static `dist/` output.
 5. Run `npm run preview` to inspect the production build locally.
+6. Run `npm test` for unit tests and `npm run test:e2e` for browser tests.
 
 ## HTML Partials
 
@@ -32,6 +33,8 @@ the quality gate checks the composed document that will be deployed.
 | HTML validation              | `html-validate`                               |
 | Markdown linting             | `markdownlint-cli2`                           |
 | Formatting checks            | Prettier                                      |
+| Unit tests                   | Vitest                                        |
+| End-to-end tests             | Playwright Test with axe-core                 |
 
 ## Source Maps
 
