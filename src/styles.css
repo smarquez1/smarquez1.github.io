@@ -109,11 +109,11 @@
   }
 
   .timeline-disclosure {
-    @apply mt-0;
+    @apply mt-[1.375rem] lg:mt-7;
   }
 
   .timeline-disclosure > summary {
-    @apply grid cursor-pointer list-none grid-cols-[minmax(0,1fr)_auto] items-center gap-y-2 border-y border-line py-4 font-mono text-xs uppercase tracking-wide text-accent md:grid-cols-[minmax(0,1fr)_auto_auto];
+    @apply grid min-h-11 cursor-pointer list-none grid-cols-[minmax(0,1fr)_auto] items-center gap-y-2 py-4 font-mono text-xs uppercase tracking-wide text-accent md:grid-cols-[minmax(0,1fr)_auto_auto];
   }
 
   .timeline-count {
@@ -144,6 +144,10 @@
 
   .timeline-item {
     @apply relative grid grid-cols-[0.75rem_minmax(0,1fr)] items-start gap-4 border-b border-line py-5 lg:grid-cols-[10rem_1rem_minmax(0,1fr)] lg:gap-6;
+  }
+
+  .timeline-list > .timeline-item:last-child {
+    @apply border-b-0;
   }
 
   .timeline-date {
@@ -255,6 +259,60 @@
 
   .timeline-tech li {
     @apply border border-line px-2 py-1 font-mono text-xs leading-4 text-muted;
+  }
+
+  .project-story {
+    @apply mt-[1.375rem] grid gap-3.5 border-t border-line pb-0 pt-[2.125rem] lg:mt-7 lg:grid-cols-[18.75rem_minmax(0,1fr)] lg:gap-24 lg:pt-7;
+  }
+
+  .project-story-intro,
+  .project-story-copy {
+    @apply min-w-0;
+  }
+
+  .project-story-heading {
+    @apply mt-3.5 text-2xl font-bold tracking-tight text-paper lg:text-[2rem];
+  }
+
+  .project-story-metadata {
+    @apply mt-3.5 flex flex-col font-mono text-xs uppercase leading-[1.55] tracking-wide text-muted;
+  }
+
+  .project-story-copy {
+    @apply flex flex-col gap-3.5;
+  }
+
+  .project-story-summary {
+    @apply text-base leading-[1.45] text-[#d5dae2] lg:text-lg;
+  }
+
+  .project-story-result {
+    @apply text-sm leading-6 text-muted lg:text-[0.9375rem];
+  }
+
+  .project-story-result-label {
+    @apply uppercase;
+  }
+
+  .project-story-details summary {
+    @apply cursor-pointer list-none font-mono text-xs uppercase tracking-wide text-accent;
+  }
+
+  .project-story-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .project-story-details summary::after {
+    content: '+';
+    @apply ml-2 text-paper;
+  }
+
+  .project-story-details[open] summary::after {
+    content: '−';
+  }
+
+  .project-story-detail-body {
+    @apply mt-2 text-sm leading-6 text-muted lg:text-[0.9375rem];
   }
 
   .focus-item {
