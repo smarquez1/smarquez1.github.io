@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">Sergio Marquez | Senior Product Engineer</title>
-  <desc id="description">Senior Product Engineer building SaaS products around real workflows with Ruby on Rails, APIs, and full-stack web platforms.</desc>
+  <desc id="description">Code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work.</desc>
   <rect width="1200" height="630" fill="#0b0d10" />
   <path d="M0 0h1200v18H0z" fill="#5b7cfa" />
   <path d="M1010 0h190v630h-190z" fill="#11151b" />
@@ -9,9 +9,9 @@
   <circle cx="1132" cy="230" r="8" fill="#5b7cfa" />
   <circle cx="1048" cy="386" r="8" fill="#5b7cfa" />
   <text x="86" y="112" fill="#a9b3c2" font-family="monospace" font-size="22" font-weight="700" letter-spacing="3">SERGIO MARQUEZ</text>
-  <text x="86" y="226" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">I build SaaS products</text>
-  <text x="86" y="300" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">around real workflows.</text>
+  <text x="86" y="226" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="700">Hi, I’m Sergio</text>
+  <text x="86" y="300" fill="#a9b3c2" font-family="Arial, Helvetica, sans-serif" font-size="31">Code-first product engineering from problem to solution.</text>
   <rect x="86" y="414" width="84" height="6" fill="#5b7cfa" />
   <text x="86" y="484" fill="#d6dce5" font-family="Arial, Helvetica, sans-serif" font-size="28">Senior Product Engineer / Ruby on Rails</text>
-  <text x="86" y="566" fill="#7f8a99" font-family="monospace" font-size="18" letter-spacing="1">SINCE 2011  /  SAAS  /  APIS  /  FULL-STACK WEB</text>
+  <text x="86" y="566" fill="#7f8a99" font-family="monospace" font-size="18" letter-spacing="1">SINCE 2011  /  RAILS  /  APIS  /  FULL-STACK PRODUCT WORK</text>
 </svg>
