@@ -5,7 +5,7 @@ The homepage uses a branded `1200x630` PNG for Open Graph and Twitter/X link pre
 ## Source
 
 - Source: `docs/seo/social-preview.svg`
-- Deployed asset: `public/assets/social-preview-v3.png`
+- Deployed asset: `public/assets/social-preview-v4.png`
 - Format: PNG, generated from the SVG with `rsvg-convert`
 - Design: dark-first typographic composition with Sergio's name, role, positioning statement, and public technical focus
 
@@ -13,11 +13,12 @@ The image contains no private repository names, customer information, or unsuppo
 
 ## Accepted Decisions
 
-- Align the social card with the homepage positioning: “I build SaaS products around real workflows.”
+- Align the social card with the humanized homepage positioning and its code-first Ruby on Rails, API, and full-stack product focus.
 - Remove the obsolete `/ 01` suffix from Sergio's name.
 - Preserve the established near-black, cobalt, white, and muted-neutral visual system.
 - Keep the card typographic and readable at small sharing-preview sizes.
 - Version the PNG filename so sharing platforms fetch the revised image instead of a cached predecessor.
+- Keep `social-preview-v2.png` and `social-preview-v3.png` as cache-stable previously published URLs while `social-preview-v4.png` remains the active metadata asset.
 
 ## Rejected Decisions
 

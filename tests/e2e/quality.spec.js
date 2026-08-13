@@ -133,7 +133,7 @@ const assertJavaScriptDisabled = async (browser, baseUrl, viewport, label) => {
   }
 
   for (const heading of [
-    'I build SaaS products around real workflows.',
+    'Hi, I’m Sergio',
     '01 / About',
     '02 / Experience',
     '03 / Technical focus',
@@ -224,6 +224,72 @@ const assertSemanticShell = async (page, label) => {
     }
   }
 
+  const hero = page.getByRole('heading', { level: 1, name: 'Hi, I’m Sergio' });
+  if ((await hero.innerText()).trim() !== 'Hi, I’m Sergio 👋') {
+    throw new Error(`${label} hero must use the exact approved greeting.`);
+  }
+  const heroFontSize = await hero.evaluate((element) =>
+    Number.parseFloat(globalThis.getComputedStyle(element).fontSize),
+  );
+  const expectedHeroFontSize = label === 'mobile' ? 40 : label === 'intermediate' ? 48 : 64;
+  if (heroFontSize !== expectedHeroFontSize) {
+    throw new Error(
+      `${label} hero heading must render at ${expectedHeroFontSize}px. Received ${heroFontSize}px.`,
+    );
+  }
+
+  const fontEvidence = await page.evaluate(async () => {
+    await globalThis.document.fonts.ready;
+    const accentedInterFaces = await globalThis.document.fonts.load(
+      '400 16px Inter',
+      'Sergio Márquez · áéíóúüñ ¿¡',
+    );
+    const heading = globalThis.document.querySelector('h1');
+    const bodyCopy = globalThis.document.querySelector('#about p');
+    const metadata = globalThis.document.querySelector('.section-label');
+
+    return {
+      heading: globalThis.getComputedStyle(heading).fontFamily,
+      body: globalThis.getComputedStyle(bodyCopy).fontFamily,
+      metadata: globalThis.getComputedStyle(metadata).fontFamily,
+      loaded: {
+        geist: globalThis.document.fonts.check('700 16px Geist'),
+        inter: globalThis.document.fonts.check('400 16px Inter'),
+        geistMono: globalThis.document.fonts.check('400 16px "Geist Mono"'),
+      },
+      accentedInterFaces: accentedInterFaces.length,
+      replacementCharacters: (globalThis.document.body.innerText.match(/�/g) ?? []).length,
+    };
+  });
+  if (!fontEvidence.heading.startsWith('Geist') || fontEvidence.heading.startsWith('Geist Mono')) {
+    throw new Error(`${label} headings must use Geist. Received ${fontEvidence.heading}.`);
+  }
+  if (!fontEvidence.body.startsWith('Inter')) {
+    throw new Error(`${label} body copy must use Inter. Received ${fontEvidence.body}.`);
+  }
+  if (!fontEvidence.metadata.startsWith('"Geist Mono"')) {
+    throw new Error(`${label} metadata must use Geist Mono. Received ${fontEvidence.metadata}.`);
+  }
+  if (Object.values(fontEvidence.loaded).some((loaded) => !loaded)) {
+    throw new Error(
+      `${label} self-hosted fonts must all be loaded: ${JSON.stringify(fontEvidence)}`,
+    );
+  }
+  if (fontEvidence.accentedInterFaces === 0 || fontEvidence.replacementCharacters > 0) {
+    throw new Error(
+      `${label} Inter Latin must cover verified accented text without replacement glyphs: ${JSON.stringify(fontEvidence)}`,
+    );
+  }
+
+  for (const text of [
+    'Outside work, I’m usually surfing, learning something new, or finding a better way to make things work.',
+    'Most production work is private. This portfolio is the public sample of what I can share.',
+  ]) {
+    if (!(await page.getByText(text, { exact: true }).isVisible())) {
+      throw new Error(`${label} page must expose approved content: ${text}`);
+    }
+  }
+
   const skipLink = page.getByRole('link', { name: 'Skip to main content' });
   await skipLink.focus();
   if (!(await skipLink.evaluate((element) => element === element.ownerDocument.activeElement))) {
@@ -241,7 +307,7 @@ const assertSemanticShell = async (page, label) => {
   });
   const compactIdentity = identity.locator('span[aria-hidden="true"]');
   if (await mobileMenu.isVisible()) {
-    if ((await compactIdentity.innerText()).trim() !== 'SM / 01') {
+    if ((await compactIdentity.innerText()).trim() !== 'SM') {
       throw new Error(`${label} mobile identity must match the approved compact treatment.`);
     }
     const menuSummary = mobileMenu.locator('summary');
@@ -447,8 +513,8 @@ const assertTimeline = async (page, label) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
 
   for (const text of [
-    'Turns operational needs from founders and teachers into role-based workflows across web and Hotwire Native applications.',
-    'Improved affected page-load times by 20% to 80%, cut CI feedback from approximately 40 minutes to 8 minutes, and led the modernization of more than 500,000 lines of Rails code.',
+    'Works with founders and teachers to turn operational needs into role-based workflows across Ruby on Rails and Hotwire Native. Built recurring Stripe billing with customizable per-student plans.',
+    'Reduced affected page-load times by 20% to 80%, cut CircleCI feedback from approximately 40 minutes to 8 minutes, and led incremental Rails and Ruby modernization.',
   ]) {
     if (!(await timeline.getByText(text, { exact: true }).isVisible())) {
       throw new Error(`${label} timeline must expose verified impact: ${text}`);
@@ -477,10 +543,10 @@ const assertTimeline = async (page, label) => {
 
 const assertSocialMetadata = async (page, label) => {
   const expectedDescription =
-    'Senior Product Engineer specializing in SaaS products, Ruby on Rails, APIs, and full-stack web platforms.';
-  const expectedImage = 'https://smarquez1.github.io/assets/social-preview-v3.png';
+    'Code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work.';
+  const expectedImage = 'https://smarquez1.github.io/assets/social-preview-v4.png';
   const expectedAlt =
-    'Sergio Marquez, Senior Product Engineer. Building SaaS products around real workflows with Ruby on Rails, APIs, and full-stack web platforms.';
+    'Sergio Marquez, code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work.';
 
   for (const [selector, expected] of [
     ['link[rel="canonical"]', 'https://smarquez1.github.io/'],
@@ -508,7 +574,7 @@ const assertSocialMetadata = async (page, label) => {
         image.addEventListener('error', () =>
           reject(new Error('Social preview image failed to load.')),
         );
-        image.src = '/assets/social-preview-v3.png';
+        image.src = '/assets/social-preview-v4.png';
       }),
   );
 

@@ -8,4 +8,5 @@ dist/
 .lighthouseci/
 *.txt
 !public/robots.txt
+!public/assets/fonts/LICENSE-*-OFL-1.1.txt
 test-results/.last-run.json

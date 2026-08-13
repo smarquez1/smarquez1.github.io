@@ -2,7 +2,7 @@
 
 ## Revision
 
-Impact visibility review, approved for issue #29, with the shipped issue #23 disclosure behavior consolidated below. The approved Pencil source is `home.pen`; principal frames are `Impact-led Career Open Desktop` and `Impact-led Career Open Mobile`. The source also preserves the collapsed, expanded, and focus-visible disclosure evidence frames.
+Approved portfolio baseline for issue #36. The canonical Pencil source is `home.pen`; it contains only `Current Portfolio Baseline Desktop` and `Current Portfolio Baseline Mobile`. Sergio approved these frames and this handoff for implementation in the issue's human-approval comment.
 
 ## Goal
 
@@ -18,11 +18,16 @@ Create a dark-first, minimalist, technical personal website home screen for Serg
 
 ## Accepted Decisions
 
+- Keep one canonical desktop frame and one canonical mobile frame; remove superseded issue experiments and duplicate evidence frames from the source.
+- Use small recognizable glyphs beside LinkedIn, GitHub, Email, and Resume / PDF labels; keep the visible text labels so icons remain supplementary.
+- Trim the footer's trailing black space so the page ends shortly after the footer content rather than with a large empty block.
+- Start the hero with the final approved greeting `Hi, I’m Sergio 👋`, followed by a clear product-engineering statement.
+- Keep the impact-led idea in the role summaries rather than creating a separate verified-stories section.
+- Include a brief, text-only personal note about surfing in About; photography remains out of scope until issue #37 supplies approved assets.
+
 - Use a typographic hero with one primary action and one contact action.
 - Make the dark theme the approved visual direction for the initial mockup.
-- Use the headline “I build SaaS products around real workflows.” to establish a concise, mobile-friendly product engineering profile.
 - Use supporting copy that presents Sergio as a Senior Product Engineer specializing in Ruby on Rails, APIs, and full-stack delivery.
-- Use a technical system map to represent the public personal website sample without inventing a product case study.
 - Use a vertical career timeline with dates, company or work context, role, and concise detail.
 - Reserve cobalt for links, active timeline state, and the primary action.
 - Keep the desktop layout spacious and the mobile layout single-column with full-width actions.
@@ -32,15 +37,18 @@ Create a dark-first, minimalist, technical personal website home screen for Serg
 - Replace the disconnected hero system-map panel with a typographic hero and direct career/contact actions.
 - Add a short company context line for selected timeline employers: industry plus what the company or product does.
 - Keep Sergio's contribution summaries separate from company descriptions.
-- Use `04 / Contact` and a direct invitation to discuss long-term remote product work.
+- Use a direct invitation to discuss long-term remote product work without a visible contact section number.
 - Preserve the information density of the current career record: dates, work arrangement, role, contribution summary, expandable notes, technologies, and the complete eight-role timeline.
 - Preserve the current timeline composition: date and work arrangement column, vertical marker rail, company card, company mark, role, status/count indicator, summary, and contribution disclosure.
-- Ship the enhanced timeline preview with the first four verified roles visible by default; positions 05–08 are available through an explicit disclosure.
+- Ship the enhanced timeline preview with the first four verified roles visible by default; positions 05–08 are available through an explicit `SHOW REMAINING 4 ROLES` disclosure.
+- Use Sergio's contribution and verified outcomes in visible role summaries; company context remains supplementary.
 - Keep all eight verified roles and native contribution disclosures available when JavaScript is disabled.
 - Animate the outer timeline disclosure and each `CONTRIBUTION NOTES` disclosure with the same open/close treatment; semantic state changes remain immediate.
 - Under `prefers-reduced-motion: reduce`, remove disclosure transitions and show the final state immediately.
 - Preserve visible `:focus-visible` treatment for every disclosure in both themes, with native Enter/Space keyboard behavior and accurate expanded state.
 - Keep the JavaScript-disabled behavior as an implementation requirement, not visible footer copy.
+- Keep the greeting copy as `Hi, I’m Sergio 👋`; the emoji is supplementary and must not carry meaning.
+- Say `surfing` explicitly in the brief personal note rather than relying on an indirect reference to waves.
 - Keep About focused on how Sergio works and avoid repeating the hero positioning.
 - Surface verified KaiPod workflow evidence and Decisiv outcomes in the visible timeline summaries.
 - Keep recurring timeline metadata and disclosure labels at 12px or larger across desktop and mobile.
@@ -62,20 +70,19 @@ Create a dark-first, minimalist, technical personal website home screen for Serg
 ## Accessibility Notes
 
 - The intended implementation uses semantic landmarks, headings, links, and buttons rather than clickable decorative containers.
-- The technical panel is supplementary and must not carry essential information.
 - Body copy is kept above 14px in the desktop and mobile directions.
 - Cobalt is paired with dark text or white text for clear state contrast in the dark-first palette.
 - Focus states, keyboard navigation, reduced motion, and dark-mode contrast remain implementation acceptance criteria.
 - Company context is supplementary text and must never be the only way to understand Sergio's role.
 - The menu button is a mockup affordance only; implementation must provide a keyboard-operable disclosure with a useful no-JavaScript fallback.
-- Timeline behavior follows the shipped issue #23 contract: enhanced preview shows roles 01–04, while no-JavaScript rendering keeps all eight roles available.
+- Timeline behavior follows the shipped issue #23 contract: enhanced preview shows roles 01–04, while no-JavaScript rendering keeps all eight roles available. The canonical baseline visually represents the collapsed enhanced state and annotates the expanded/no-JavaScript contract.
 - Outer timeline and `CONTRIBUTION NOTES` disclosures use native semantic disclosure behavior; animation is feedback only and is bypassed for reduced motion.
 - Focus-visible indicators remain visible and high-contrast in light and dark themes; disclosure labels communicate the action and count.
 
 ## Responsive Notes
 
-- Desktop uses a two-column hero and horizontal navigation.
-- Mobile collapses navigation to a menu affordance, stacks the hero, makes actions full width, and keeps the technical panel below the actions.
+- Desktop uses a spacious typographic hero and horizontal navigation.
+- Mobile collapses navigation to a menu affordance, stacks the hero, and makes actions full width.
 - Timeline rows keep the marker visible while moving date and role information into a compact vertical group.
 - Desktop keeps the timeline's date column, marker rail, and large cards; mobile stacks date metadata above each card while retaining the same card hierarchy.
 - Technical focus changes from a two-column section to a single-column list.
@@ -84,17 +91,15 @@ Create a dark-first, minimalist, technical personal website home screen for Serg
 
 ## Implementation Risks
 
-- The system map should remain lightweight HTML/CSS, not a shipped mockup image.
 - Dark mode needs a deliberate visual pass rather than simple color inversion.
 - The mobile menu must remain usable with JavaScript disabled or provide a semantic fallback.
 - Copy length may require a second content pass after implementation to preserve readable line lengths at intermediate widths.
 - Native disclosure transitions vary across browsers; semantics, immediate assistive-technology state, keyboard operation, and the reduced-motion final state take priority over visual interpolation.
 - Preview hiding must be applied only after enhancement is available; otherwise the no-JavaScript fallback must retain all eight roles.
-- The current implementation retains the full mobile navigation link list instead of the approved compact menu treatment; resolve this in a separate navigation work unit rather than changing issue #29 scope silently.
 
-## Shipped Disclosure Handoff — Issue #23
+## Disclosure Handoff — Inherited Issue #23 Contract
 
-Issue #23 defines the shipped timeline disclosure behavior and is represented by the preserved Pencil evidence frames `Issue #23 Timeline Collapsed Desktop`, `Issue #23 Timeline Expanded Desktop`, `Issue #23 Timeline Collapsed Mobile`, `Issue #23 Timeline Expanded Mobile`, `Issue #23 Timeline Control Focus Desktop`, and `Issue #23 Timeline Control Focus Mobile`.
+The current baseline inherits the shipped Issue #23 disclosure behavior as a written implementation contract. Superseded Issue #23 evidence frames were removed from `home.pen` during the canonical-source cleanup; the current source contains only the two baseline frames documented above.
 
 - Enhanced presentation: show roles 01–04 initially; the control reads `SHOW REMAINING 4 ROLES` and status reads `SHOWING 4 OF 8 ROLES`.
 - Expanded presentation: show roles 01–08; the control reads `SHOW FEWER ROLES` and status reads `SHOWING ALL 8 ROLES`.
