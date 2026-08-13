@@ -209,6 +209,18 @@ const assertJavaScriptDisabled = async (browser, baseUrl, viewport, label) => {
     throw new Error(`${label} JavaScript-disabled contribution notes must close with Space.`);
   }
 
+  const projectDisclosure = page.locator('.project-story-details');
+  const projectSummary = projectDisclosure.locator(':scope > summary');
+  await projectSummary.focus();
+  await page.keyboard.press('Enter');
+  if (!(await projectDisclosure.evaluate((element) => element.open))) {
+    throw new Error(`${label} JavaScript-disabled project notes must open with Enter.`);
+  }
+  await page.keyboard.press('Space');
+  if (await projectDisclosure.evaluate((element) => element.open)) {
+    throw new Error(`${label} JavaScript-disabled project notes must close with Space.`);
+  }
+
   await context.close();
 };
 
@@ -227,6 +239,13 @@ const assertSemanticShell = async (page, label) => {
   const hero = page.getByRole('heading', { level: 1, name: 'Hi, I’m Sergio' });
   if ((await hero.innerText()).trim() !== 'Hi, I’m Sergio 👋') {
     throw new Error(`${label} hero must use the exact approved greeting.`);
+  }
+  const heroPositioning = page.locator('#hero-heading + p');
+  if (
+    (await heroPositioning.innerText()).replaceAll(/\s+/g, ' ').trim() !==
+    'I’m a code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work. From understanding the problem to shipping the solution.'
+  ) {
+    throw new Error(`${label} hero must use the approved period-separated positioning copy.`);
   }
   const heroFontSize = await hero.evaluate((element) =>
     Number.parseFloat(globalThis.getComputedStyle(element).fontSize),
@@ -400,11 +419,49 @@ const assertTimeline = async (page, label) => {
   }
 
   const timelineSummary = disclosure.locator(':scope > summary');
+  const outerSummaryEvidence = await timelineSummary.evaluate((element) => {
+    const style = globalThis.getComputedStyle(element);
+    const bounds = element.getBoundingClientRect();
+    return {
+      borderTopWidth: style.borderTopWidth,
+      borderBottomWidth: style.borderBottomWidth,
+      width: bounds.width,
+      height: bounds.height,
+    };
+  });
+  if (
+    outerSummaryEvidence.borderTopWidth !== '0px' ||
+    outerSummaryEvidence.borderBottomWidth !== '0px'
+  ) {
+    throw new Error(`${label} outer timeline summary must be borderless.`);
+  }
+  if (outerSummaryEvidence.width < 44 || outerSummaryEvidence.height < 44) {
+    throw new Error(
+      `${label} outer timeline summary must provide a practical 44px hit area: ${JSON.stringify(outerSummaryEvidence)}`,
+    );
+  }
   if ((await timelineSummary.getAttribute('aria-controls')) !== 'remaining-roles') {
     throw new Error(`${label} timeline disclosure must identify the remaining roles it controls.`);
   }
   if ((await timelineSummary.innerText()).includes('SHOW REMAINING 4 ROLES') === false) {
     throw new Error(`${label} collapsed timeline disclosure must describe its action and count.`);
+  }
+
+  const paperKite = entries.nth(3);
+  if (
+    !(await paperKite.isVisible()) ||
+    !(await paperKite.getByRole('heading', { level: 3, name: /Paper Kite Ltd/ }).isVisible()) ||
+    (await entries.nth(4).isVisible())
+  ) {
+    throw new Error(`${label} Paper Kite must remain visible as role 04 before the outer control.`);
+  }
+  for (const text of [
+    'Designs and develops mobile and web products for clients.',
+    'Developed Ruby on Rails APIs for mobile products, external services, and payment integrations.',
+  ]) {
+    if (!(await entries.nth(3).getByText(text, { exact: true }).isVisible())) {
+      throw new Error(`${label} Paper Kite must preserve its complete visible context: ${text}`);
+    }
   }
 
   await timelineSummary.focus();
@@ -541,6 +598,147 @@ const assertTimeline = async (page, label) => {
   }
 };
 
+const assertProjectStory = async (page, label) => {
+  const experience = page.locator('section#experience');
+  const project = experience.locator(':scope > section.project-story');
+  const careerLists = experience.locator('ol.timeline-list');
+  await assertCount(project, 1, `${label} Experience must contain one project subsection.`);
+  await assertCount(
+    project.getByRole('heading', { level: 3, name: 'Hacer Pedido', exact: true }),
+    1,
+    `${label} project must use a nested H3.`,
+  );
+  await assertCount(
+    careerLists.locator('text=Hacer Pedido'),
+    0,
+    `${label} project must remain outside the career ordered lists.`,
+  );
+
+  const exactCopy = [
+    'Selected community project',
+    'Volunteer community project',
+    '2020 · COVID-19 pandemic',
+    'Distributed team / Argentina · Spain · Germany',
+    'A small volunteer community project during COVID-19, helping local businesses publish simple menus and take orders remotely.',
+    'I joined the later rewrite, not the original WordPress version. As part of a small distributed volunteer team, I worked across UX and frontend/full-stack delivery. Businesses could manage menu information, and customers could review a cart before handing the order off to a prefilled WhatsApp message.',
+  ];
+  for (const text of exactCopy) {
+    await assertCount(
+      project.getByText(text, { exact: true }),
+      1,
+      `${label} project must preserve approved copy: ${text}`,
+    );
+  }
+  const result = project.locator('.project-story-result');
+  if (
+    (await result.innerText()).replaceAll(/\s+/g, ' ').trim() !==
+      'WHAT WE SHIPPED / A simple ordering path that helped participating local businesses take orders remotely.' ||
+    !(await result.isVisible())
+  ) {
+    throw new Error(`${label} exact bounded project result must remain visible while collapsed.`);
+  }
+
+  const disclosure = project.locator('details.project-story-details');
+  const summary = disclosure.locator(':scope > summary');
+  if ((await summary.innerText()).trim() !== 'CONTRIBUTION NOTES') {
+    throw new Error(
+      `${label} project disclosure must use the established Contribution notes label.`,
+    );
+  }
+  await summary.focus();
+  await assertVisibleFocus(summary, `${label} project disclosure must show visible focus.`);
+  await page.keyboard.press('Enter');
+  if (!(await disclosure.evaluate((element) => element.open))) {
+    throw new Error(`${label} project disclosure must open natively with Enter.`);
+  }
+  if ((await activeAnimationCount(disclosure)) === 0) {
+    throw new Error(`${label} project disclosure opening must animate.`);
+  }
+  await assertOpeningVisualState(
+    disclosure,
+    `${label} project disclosure must open without clipping.`,
+  );
+  await page.keyboard.press('Space');
+  if (await disclosure.evaluate((element) => element.open)) {
+    throw new Error(`${label} project disclosure must reverse immediately while opening.`);
+  }
+  if ((await activeClosingAnimationCount(page)) === 0) {
+    throw new Error(`${label} reversed project disclosure transition must remain animated.`);
+  }
+  await page.waitForTimeout(220);
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await summary.focus();
+  await page.keyboard.press('Enter');
+  if ((await activeAnimationCount(disclosure)) !== 0) {
+    throw new Error(`${label} reduced motion must bypass project disclosure animation.`);
+  }
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+
+  const boundaryEvidence = await page.evaluate(() => {
+    const experience = globalThis.document.querySelector('#experience');
+    const project = globalThis.document.querySelector('.project-story');
+    const focus = globalThis.document.querySelector('#focus > div');
+    const focusList = focus.querySelector('ul');
+    const focusItems = [...focusList.children];
+    const timelineSummary = globalThis.document.querySelector(
+      '#experience > details.timeline-disclosure > summary',
+    );
+    const visibleCareerItems = [...experience.querySelectorAll('.timeline-item')].filter((item) =>
+      item.checkVisibility(),
+    );
+    const lastCareerItem = visibleCareerItems.at(-1);
+    const style = (element) => globalThis.getComputedStyle(element);
+    return {
+      lastCareerBottom: style(lastCareerItem).borderBottomWidth,
+      projectTop: style(project).borderTopWidth,
+      projectBottom: style(project).borderBottomWidth,
+      focusTop: style(focus).borderTopWidth,
+      focusListTop: style(focusList).borderTopWidth,
+      focusListBottom: style(focusList).borderBottomWidth,
+      firstFocusItemTop: style(focusItems[0]).borderTopWidth,
+      focusItemBoundaries: focusItems.slice(0, -1).map((item, index) => {
+        const nextItem = focusItems[index + 1];
+        return (
+          Number.parseFloat(style(item).borderBottomWidth) +
+          Number.parseFloat(style(nextItem).borderTopWidth)
+        );
+      }),
+      timelineToProjectGap:
+        project.getBoundingClientRect().top - timelineSummary.getBoundingClientRect().bottom,
+      paperKiteToTimelineGap:
+        timelineSummary.getBoundingClientRect().top - lastCareerItem.getBoundingClientRect().bottom,
+      projectToFocusGap: focus.getBoundingClientRect().top - project.getBoundingClientRect().bottom,
+      order: Boolean(
+        experience.compareDocumentPosition(project) &
+          globalThis.Node.DOCUMENT_POSITION_CONTAINED_BY &&
+        project.compareDocumentPosition(focus) & globalThis.Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    };
+  });
+  const expectedTimelineToProjectGap = label === 'desktop' ? 28 : 22;
+  const expectedPaperKiteToTimelineGap = label === 'desktop' ? 28 : 22;
+  const expectedProjectToFocusGap = label === 'desktop' ? 56 : 34;
+  if (
+    boundaryEvidence.lastCareerBottom !== '0px' ||
+    boundaryEvidence.projectTop !== '1px' ||
+    boundaryEvidence.projectBottom !== '0px' ||
+    boundaryEvidence.focusTop !== '1px' ||
+    boundaryEvidence.focusListTop !== '0px' ||
+    boundaryEvidence.focusListBottom !== '1px' ||
+    boundaryEvidence.firstFocusItemTop !== '0px' ||
+    boundaryEvidence.focusItemBoundaries.some((width) => width !== 1) ||
+    Math.abs(boundaryEvidence.paperKiteToTimelineGap - expectedPaperKiteToTimelineGap) > 0.5 ||
+    Math.abs(boundaryEvidence.timelineToProjectGap - expectedTimelineToProjectGap) > 0.5 ||
+    Math.abs(boundaryEvidence.projectToFocusGap - expectedProjectToFocusGap) > 0.5 ||
+    !boundaryEvidence.order
+  ) {
+    throw new Error(
+      `${label} transition boundaries are not singly owned: ${JSON.stringify(boundaryEvidence)}`,
+    );
+  }
+};
+
 const assertSocialMetadata = async (page, label) => {
   const expectedDescription =
     'Code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work.';
@@ -625,6 +823,7 @@ for (const [label, viewport] of viewports) {
       await page.goto(baseURL, { waitUntil: 'networkidle' });
       await assertSemanticShell(page, label);
       await assertTimeline(page, label);
+      await assertProjectStory(page, label);
       if (label === 'desktop') {
         await assertSocialMetadata(page, label);
         await assertSmoothScrolling(page, label);
