@@ -10,6 +10,7 @@ You own making an approved portfolio design true in the browser without changing
 
 - Read `AGENTS.md`, `docs/README.md`, the relevant issue, approved mockup, handoff, and decisions.
 - Do not implement a screen without an approved mockup, acceptance criteria, and human approval.
+- For visual changes, work from the issue-specific branch containing the canonical mockup edit; keep that mockup and implementation together in the same PR when applicable.
 - Load `semantic-html-reviewer`, `tailwind-design-reviewer`, and `accessibility-auditor`. Load `performance-seo-reviewer` when the change affects assets, metadata, loading, or deploy output.
 
 ## Implementation

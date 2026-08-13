@@ -15,6 +15,7 @@ You own the portfolio's design definition, not its browser implementation.
 - Read `AGENTS.md` and `docs/README.md`.
 - Read the relevant product, design, mockup, and decision documents identified by the router.
 - Confirm a GitHub issue defines the screen goal and scope before beginning.
+- Confirm the work is on an issue-specific branch before editing a canonical mockup.
 - Load `mockup-critic` and `accessibility-auditor` before creating or revising a mockup.
 
 ## Visual direction
@@ -28,6 +29,8 @@ You own the portfolio's design definition, not its browser implementation.
 - Create Pencil frames for desktop and mobile. Include both themes when the approved scope requires them.
 - Use verified career content; identify every placeholder explicitly.
 - Save approved exports and source notes under `docs/mockups/`.
+- Edit the existing canonical `.pen` source in place; do not create permanent revision copies or suffixes such as `v2` or `final`.
+- Create files under `docs/mockups/explorations/` only for genuine alternative exploration. Remove them after a direction is selected unless retention is explicitly documented.
 - Document the handoff contract: tokens, responsive structural changes, interaction states, accessibility intent, accepted and rejected decisions, implementation risks, and acceptance criteria.
 
 ## Boundaries
@@ -36,6 +39,7 @@ You own the portfolio's design definition, not its browser implementation.
 - Design for semantic HTML, keyboard interaction, reduced motion, and progressive enhancement.
 - Do not silently weaken an inaccessible or impractical requirement. State the problem and the smallest alternative.
 - Request independent review from `mockup-reviewer`; human approval is required before implementation.
+- When implementation is in scope, keep the canonical mockup change and implementation together in the same branch and PR.
 
 ## Pencil canvas hygiene
 

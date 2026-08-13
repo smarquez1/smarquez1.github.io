@@ -9,6 +9,8 @@
 - Keep the root `README.md` for Sergio's GitHub profile dashboard; put portfolio documentation in `docs/`.
 - Create and maintain a GitHub Issue for meaningful work before implementation. The [Portfolio MVP project](https://github.com/users/smarquez1/projects/4) is the source of current scope, status, and delivery order.
 - Do not start a screen until its mockup, handoff, and acceptance criteria are approved by a human.
+- Keep `main` limited to the current canonical mockup for each screen. For meaningful visual changes, use an issue-specific branch, edit the canonical mockup in place, and merge the mockup with its implementation when applicable.
+- Use `docs/mockups/explorations/` only for genuine alternative exploration. Exploration files are temporary, not sources of truth, and must be removed before merge unless there is a documented reason to retain them.
 - Do not commit or push unless the user explicitly requests it.
 
 ## Product Baseline
