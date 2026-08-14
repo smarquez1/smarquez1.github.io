@@ -11,7 +11,7 @@ export default class extends Controller {
     this.motionQuery = globalThis.matchMedia('(prefers-reduced-motion: reduce)');
     this.handleMotionChange = this.handleMotionChange.bind(this);
 
-    this.contentTarget.dataset.disclosureContent = '';
+    this.contentTarget.dataset.animatedDetailsContent = '';
     this.motionQuery.addEventListener('change', this.handleMotionChange);
   }
 
@@ -140,7 +140,7 @@ export default class extends Controller {
       descendant.removeAttribute('id');
     }
     ghost.removeAttribute('id');
-    ghost.dataset.disclosureGhost = '';
+    ghost.dataset.animatedDetailsGhost = '';
     ghost.setAttribute('aria-hidden', 'true');
     ghost.inert = true;
     Object.assign(ghost.style, {

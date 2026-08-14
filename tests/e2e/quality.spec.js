@@ -36,14 +36,14 @@ const visibleCount = (locator) =>
 
 const activeAnimationCount = (details) =>
   details
-    .locator(':scope > [data-disclosure-content]')
+    .locator(':scope > [data-animated-details-content]')
     .evaluate(
       (element) =>
         element.getAnimations().filter(({ playState }) => playState === 'running').length,
     );
 
 const openingVisualState = (details) =>
-  details.locator(':scope > [data-disclosure-content]').evaluate((element) => {
+  details.locator(':scope > [data-animated-details-content]').evaluate((element) => {
     const style = globalThis.getComputedStyle(element);
 
     return {
@@ -64,7 +64,7 @@ const assertOpeningVisualState = async (details, message) => {
 
 const activeClosingAnimationCount = (page) =>
   page
-    .locator('[data-disclosure-ghost]')
+    .locator('[data-animated-details-ghost]')
     .evaluateAll((elements) =>
       elements.reduce(
         (count, element) =>
@@ -80,7 +80,7 @@ const assertClosingVisualState = async (details, message) => {
         globalThis.requestAnimationFrame(() => globalThis.requestAnimationFrame(resolve)),
       ),
   );
-  const state = await details.locator('+ [data-disclosure-ghost]').evaluate((element) => {
+  const state = await details.locator('+ [data-animated-details-ghost]').evaluate((element) => {
     const style = globalThis.getComputedStyle(element);
 
     return {

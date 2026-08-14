@@ -240,8 +240,8 @@
     content: '−';
   }
 
-  [data-disclosure-content],
-  [data-disclosure-ghost] {
+  [data-animated-details-content],
+  [data-animated-details-ghost] {
     overflow: hidden;
   }
 
