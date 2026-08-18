@@ -4,7 +4,7 @@ const duration = 200;
 const easing = 'ease-out';
 
 export default class extends Controller {
-  static targets = ['content'];
+  static targets = ['summary', 'content'];
 
   // Prepare the reduced-motion listener and mark the content enhanced.
   connect() {
