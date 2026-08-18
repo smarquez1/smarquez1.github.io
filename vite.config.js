@@ -34,4 +34,7 @@ const htmlPartials = () => ({
 export default defineConfig({
   base: './',
   plugins: [htmlPartials(), tailwindcss()],
+  server: {
+    port: 3000,
+  },
 });

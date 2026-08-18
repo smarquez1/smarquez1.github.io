@@ -5,11 +5,11 @@ The portfolio uses a small Vite foundation with local Tailwind compilation and S
 ## Quick Path
 
 1. Run `npm install`.
-2. Run `npm run dev` for local development.
+2. Run `npm run dev` for local development. Vite prefers port `3000` and falls back to the next available port.
 3. Run `npm run lint` to check JavaScript, HTML, and Markdown.
 4. Run `npm run build` to produce the static `dist/` output.
-5. Run `npm run preview` to inspect the production build locally.
-6. Run `npm test` for unit tests and `npm run test:e2e` for browser tests.
+5. Run `npm test` for unit tests and `npm run test:e2e` for headless browser tests.
+6. Run `npm run test:e2e -- --headed` when you need to inspect the browser during debugging.
 
 ## HTML Partials
 

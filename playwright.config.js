@@ -5,11 +5,12 @@ export default defineConfig({
   timeout: 60000,
   fullyParallel: true,
   use: {
-    baseURL: 'http://127.0.0.1:4174',
+    baseURL: 'http://127.0.0.1:3000',
+    headless: true,
   },
   webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 --port 4174 --strictPort',
-    url: 'http://127.0.0.1:4174',
+    command: 'npm run dev -- --host 127.0.0.1 --port 3000 --strictPort',
+    url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
   },
 });
