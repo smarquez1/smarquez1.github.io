@@ -4,6 +4,10 @@
 
 Approved Issue #38 scope. Sergio approved this canonical Pencil source and handoff for implementation in the [human approval comment](https://github.com/smarquez1/smarquez1.github.io/issues/38#issuecomment-5281712527). The source contains only `Current Portfolio Baseline Desktop` and `Current Portfolio Baseline Mobile`. Future scope changes still require independent critique and human approval before implementation.
 
+Issue #44 refreshes the approved career copy in place without changing the visual structure, interaction contract, or responsive composition.
+
+Issue #43 restores the editable canonical source from the approved `home_desktop.png`, `home_mobile.png`, and this handoff after the checked-in `.pen` file was found to contain only pen.dev starter content. This is a source-integrity repair, not a new visual direction: it removes onboarding artwork, recreates the approved dark desktop/mobile baseline with verified copy, and introduces no placeholders. Independent review and human confirmation are still required before the repair is merged.
+
 ## Goal
 
 Establish Sergio's product engineering profile quickly, then give recruiters and engineering managers a clear path to experience, technical focus, and contact.
@@ -181,16 +185,16 @@ The section is static content with one progressive enhancement: use a semantic `
 - **Motion and accessibility:** use the same open/close animation and reversal contract as role contribution notes; reduced motion bypasses animation. Semantic state changes are immediate, focus remains visible, and Enter/Space operate the native summary. Without JavaScript, `<details>` remains operable and the visible summary/result do not depend on opening.
 - **Responsive:** desktop keeps the 300px metadata column and 96px editorial gap; mobile stacks the subsection. The disclosure control follows the narrative column on desktop and the single content column on mobile.
 - **Timeline visibility:** the enhanced collapsed timeline visibly renders roles 01–04, including Paper Kite Ltd as role `04 / 08`; the `SHOW REMAINING 4 ROLES / SHOWING 4 OF 8 ROLES` disclosure follows Paper Kite and is not a replacement for it. Roles 05–08 remain available through the existing disclosure/no-JavaScript contract.
-- **Visible-role evidence:** desktop timeline items `cvVIZ`, `ac7DC`, `Hli2t`, and `K1hbG` are enabled and resolved in order; Paper Kite `K1hbG` is the fourth visible card, followed by the borderless disclosure `JVRwp` and then the project subsection. Mobile items `xnPMy`, `c8SgY`, `HQsIC`, and `CN2rz` are enabled and resolved in order; Paper Kite `CN2rz` is fourth, followed by the borderless disclosure `D1xt2W` and then the project subsection. Positions are intentionally content-driven rather than hardcoded evidence offsets.
-- **Paper Kite visible-role evidence:** desktop card `K1hbG` includes context `Designs and develops mobile and web products for clients.` and summary `Developed Ruby on Rails APIs for mobile products, external services, and payment integrations.`, followed by collapsed `CONTRIBUTION NOTES +`; mobile card `CN2rz` contains the same copy and pattern in its stacked responsive form. The role remains `04 / 08` with `MAY 2016—MAY 2017` and `ON-SITE / WELLINGTON`.
+- **Visible-role evidence:** the canonical frames named `Current Portfolio Baseline Desktop` and `Current Portfolio Baseline Mobile` each contain four enabled role groups, named `Role 1` through `Role 4` and `Mobile Role 1` through `Mobile Role 4`. Paper Kite is the fourth visible card, followed by the borderless timeline disclosure and then the project subsection. Stable layer names, rather than generated Pencil IDs or hardcoded offsets, are the traceable evidence contract.
+- **Paper Kite visible-role evidence:** the desktop and mobile `Role 4 Card` layers include context `Designs and develops mobile and web products for clients.` and summary `Developed Ruby on Rails APIs for mobile products, external services, and payment integrations.`, followed by collapsed `CONTRIBUTION NOTES +`. The role remains `04 / 08` with `MAY 2016—MAY 2017` and `ON-SITE / WELLINGTON`.
 
 ### Expanded-state implementation evidence
 
-Temporary verification was performed by enabling the existing hidden detail nodes inside the canonical project disclosure containers, allowing the parent sections to use natural fit-content reflow, capturing bounds/screenshots, and restoring both nodes to `enabled: false`. No duplicate root frames or exploration artifacts were retained.
+The canonical source represents the approved collapsed enhanced state; expanded behavior remains an implementation contract rather than a permanent duplicate frame. Opening either native disclosure must increase section height naturally, move later content without overlay or clipping, and preserve immediate semantic state. No duplicate root frames or exploration artifacts are retained.
 
-- Desktop expanded project subsection: `224px` high; disclosure detail: `860×69px`; Technical Focus moved from `y=2473` collapsed to `y=2507` expanded (`+34px`); Contact moved from `y=2785` to `y=2819` (`+34px`).
-- Mobile expanded project subsection: `506px` high; disclosure detail: `346×147px`; Technical Focus moved from `y=3023` collapsed to `y=3178` expanded (`+155px`); Contact moved from `y=3372` to `y=3527` (`+155px`). The extra displacement includes the opened detail plus the natural parent/neighbor reflow, with no overlay or fixed expanded height.
-- Canonical state after cleanup: both detail nodes are disabled, frames are collapsed, and the canonical dimensions remain `VUu2s 1440×3500` and `PKtDg 390×4360`. The permanent mockup does not contain expanded duplicate frames.
+- Desktop canonical frame: `Current Portfolio Baseline Desktop`, `1440×3500`.
+- Mobile canonical frame: `Current Portfolio Baseline Mobile`, `390×4360`.
+- Generated Pencil IDs are intentionally excluded because reconstructing or importing an editable source changes them without changing the design contract.
 
 ## Approval Gate
 
@@ -198,7 +202,7 @@ Temporary verification was performed by enabling the existing hidden detail node
 
 ## Disclosure Handoff — Inherited Issue #23 Contract
 
-The current baseline inherits the shipped Issue #23 disclosure behavior as a written implementation contract. Superseded Issue #23 evidence frames were removed from `home.pen` during the canonical-source cleanup; the current source contains only the two baseline frames documented above.
+The current baseline inherits the shipped Issue #23 disclosure behavior as a written implementation contract. Superseded Issue #23 evidence frames were removed from `smarquez1_github_io.pen` during the canonical-source cleanup; the current source contains only the two baseline frames documented above.
 
 - Enhanced presentation: show roles 01–04 initially; the control reads `SHOW REMAINING 4 ROLES` and status reads `SHOWING 4 OF 8 ROLES`.
 - Expanded presentation: show roles 01–08; the control reads `SHOW FEWER ROLES` and status reads `SHOWING ALL 8 ROLES`.

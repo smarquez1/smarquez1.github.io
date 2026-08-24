@@ -13,6 +13,15 @@
 - Use `docs/mockups/explorations/` only for genuine alternative exploration. Exploration files are temporary, not sources of truth, and must be removed before merge unless there is a documented reason to retain them.
 - Do not commit or push unless the user explicitly requests it.
 
+## Pencil Workflow
+
+- Use the official `@pen.dev/cli` package for reproducible `.pen` creation and modification: `npm install --global @pen.dev/cli@0.3.4`.
+- Use `pen --in <input.pen> --out <output.pen> --prompt "..."` for CLI transformations; never overwrite the canonical source until the output has been reviewed.
+- Use the `pen.dev` MCP for interactive canvas inspection and precise node edits. MCP edits are not considered persisted until the open document is saved with `⌘S` in Pen.app.
+- Do not use `osascript` or other desktop-automation workarounds to save, rename, or manipulate `.pen` files.
+- After any MCP save or CLI write, verify the canonical `.pen` path with `git status --short` before renaming, closing, or continuing work.
+- Do not rely on stale `pen` or `pencil` shims. If either command fails, reinstall `@pen.dev/cli` and run `mise reshim --force` before editing a design.
+
 ## Product Baseline
 
 - Build mobile-first, minimalist, technical, and polished experiences without copying other brands.

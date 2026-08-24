@@ -570,7 +570,7 @@ const assertTimeline = async (page, label) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
 
   for (const text of [
-    'Works with founders and teachers to turn operational needs into role-based workflows across Ruby on Rails and Hotwire Native. Built recurring Stripe billing with customizable per-student plans.',
+    'Builds role-based workflows across Ruby on Rails and Hotwire Native, expanded Action Cable messaging, and implemented recurring Stripe billing with customizable per-student plans.',
     'Reduced affected page-load times by 20% to 80%, cut CircleCI feedback from approximately 40 minutes to 8 minutes, and led incremental Rails and Ruby modernization.',
   ]) {
     if (!(await timeline.getByText(text, { exact: true }).isVisible())) {

@@ -2,5 +2,6 @@ node_modules/
 dist/
 .opencode/
 .playwright-mcp/
+test-results/
 docs/mockups/*.pen
 docs/mockups/*.png
