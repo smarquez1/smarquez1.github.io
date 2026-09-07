@@ -17,17 +17,16 @@
     },
     "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp"],
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp"
+      ],
       "enabled": true
     },
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
-      "enabled": true
-    },
-    "lighthouse": {
-      "type": "local",
-      "command": ["npx", "-y", "@danielsogl/lighthouse-mcp"],
       "enabled": true
     }
   }
