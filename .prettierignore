@@ -1,6 +1,0 @@
-node_modules/
-dist/
-.opencode/
-.playwright-mcp/
-docs/mockups/*.pen
-docs/mockups/*.png

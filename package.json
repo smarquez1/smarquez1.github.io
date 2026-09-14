@@ -3,19 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@12.4.1",
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "vite build",
-    "lint": "npm run lint:js && npm run lint:html && npm run lint:md",
-    "lint:js": "eslint .",
-    "lint:html": "npm run build && html-validate dist/index.html",
+    "lint": "pnpm run lint:js && pnpm run lint:html && pnpm run lint:md",
+    "lint:js": "biome check .",
+    "lint:html": "pnpm run build && html-validate dist/index.html",
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"!node_modules/**\"",
     "test": "vitest run --passWithNoTests",
     "test:e2e": "playwright test",
-    "quality:browser": "npm run test:e2e",
+    "quality:browser": "pnpm run test:e2e",
     "quality:lighthouse": "lhci autorun",
-    "format:check": "prettier --check .",
-    "prepare": "simple-git-hooks"
+    "format:check": "biome ci ."
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2"
@@ -23,21 +24,14 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
     "@playwright/test": "^1.62.1",
-    "@eslint/js": "^9.33.0",
     "@lhci/cli": "^0.15.1",
     "@tailwindcss/vite": "^4.1.11",
-    "eslint": "^9.33.0",
-    "globals": "^16.3.0",
+    "@biomejs/biome": "^2.2.4",
     "html-validate": "^11.6.2",
     "markdownlint-cli2": "^0.18.1",
     "playwright": "^1.62.1",
-    "prettier": "^3.6.2",
-    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^4.1.11",
     "vite": "^8.1.4",
     "vitest": "^4.1.0"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npm run lint"
   }
 }

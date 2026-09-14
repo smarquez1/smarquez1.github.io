@@ -4,12 +4,12 @@ The portfolio uses a small Vite foundation with local Tailwind compilation and S
 
 ## Quick Path
 
-1. Run `npm install`.
-2. Run `npm run dev` for local development. Vite prefers port `3000` and falls back to the next available port.
-3. Run `npm run lint` to check JavaScript, HTML, and Markdown.
-4. Run `npm run build` to produce the static `dist/` output.
-5. Run `npm test` for unit tests and `npm run test:e2e` for headless browser tests.
-6. Run `npm run test:e2e -- --headed` when you need to inspect the browser during debugging.
+1. Run `pnpm install`.
+2. Run `pnpm run dev` for local development. Vite prefers port `3000` and falls back to the next available port.
+3. Run `pnpm run lint` to check JavaScript, HTML, and Markdown.
+4. Run `pnpm run build` to produce the static `dist/` output.
+5. Run `pnpm test` for unit tests and `pnpm run test:e2e` for headless browser tests.
+6. Run `pnpm run test:e2e -- --headed` when you need to inspect the browser during debugging. Set `PLAYWRIGHT_PORT` if port 3000 is already in use.
 
 ## HTML Partials
 
@@ -29,10 +29,10 @@ the quality gate checks the composed document that will be deployed.
 | Build and development server | Vite                                          |
 | Styling                      | Tailwind CSS compiled through the Vite plugin |
 | Progressive enhancement      | Stimulus                                      |
-| JavaScript linting           | ESLint flat config                            |
+| JavaScript linting           | Biome                                        |
 | HTML validation              | `html-validate`                               |
 | Markdown linting             | `markdownlint-cli2`                           |
-| Formatting checks            | Prettier                                      |
+| Formatting checks            | Biome                                        |
 | Unit tests                   | Vitest                                        |
 | End-to-end tests             | Playwright Test with axe-core                 |
 

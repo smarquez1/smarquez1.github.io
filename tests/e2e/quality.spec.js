@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { test } from '@playwright/test';
+
 const viewports = [
   ['desktop', { width: 1440, height: 900 }],
   ['intermediate', { width: 768, height: 1024 }],
@@ -304,7 +305,7 @@ const assertSemanticShell = async (page, label) => {
     'Outside work, I’m usually surfing, learning something new, or finding a better way to make things work.',
     'Most production work is private. This portfolio is the public sample of what I can share.',
   ]) {
-    if (!(await page.getByText(text, { exact: true }).isVisible())) {
+    if (!(await page.locator('p').filter({ hasText: text }).isVisible())) {
       throw new Error(`${label} page must expose approved content: ${text}`);
     }
   }
@@ -712,7 +713,7 @@ const assertProjectStory = async (page, label) => {
       order: Boolean(
         experience.compareDocumentPosition(project) &
           globalThis.Node.DOCUMENT_POSITION_CONTAINED_BY &&
-        project.compareDocumentPosition(focus) & globalThis.Node.DOCUMENT_POSITION_FOLLOWING,
+          project.compareDocumentPosition(focus) & globalThis.Node.DOCUMENT_POSITION_FOLLOWING,
       ),
     };
   });

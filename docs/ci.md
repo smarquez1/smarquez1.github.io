@@ -6,10 +6,9 @@ failure cannot be hidden inside deployment setup.
 
 ## Checks
 
-The workflow installs the locked dependency set with `npm ci`, then runs:
+The workflow installs the locked dependency set with `pnpm install --frozen-lockfile`, then runs:
 
-- Prettier formatting checks.
-- ESLint JavaScript checks.
+- Biome formatting and JavaScript checks.
 - `html-validate` for the page markup.
 - Markdown linting for project documentation.
 - The production Vite build.
@@ -24,8 +23,8 @@ deployed GitHub Pages site.
 
 ## Local Commands
 
-Run `npm test` for Vitest unit tests, then use `npm run quality:browser` for
-Playwright Test end-to-end quality checks. Run `npm run quality:lighthouse` for
+Run `pnpm test` for Vitest unit tests, then use `pnpm run quality:browser` for
+Playwright Test end-to-end quality checks. Run `pnpm run quality:lighthouse` for
 the Lighthouse CI audit. Both browser commands manage a local Vite development
 server and fail with the specific violations or assertions that need attention.
 

@@ -1,8 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-
-import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
 
 const partialPattern = /<!--\s*partial:([a-z-]+)\s*-->/g;
 

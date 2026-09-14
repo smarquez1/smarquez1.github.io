@@ -14,32 +14,31 @@ sample.
 ## Stack
 
 Vite, Tailwind CSS, Stimulus, semantic HTML5, GitHub Actions, and GitHub Pages.
-Quality tooling includes ESLint, Prettier, `html-validate`, `markdownlint-cli2`,
-Playwright, axe-core, and Lighthouse CI.
+Quality tooling includes Biome, `html-validate`, `markdownlint-cli2`, Playwright,
+axe-core, and Lighthouse CI.
 
 The site is JavaScript-optional and uses no CSS CDN, React, TypeScript, Rails, or
 runtime AI model.
 
 ## Development
 
-Requires Node.js 22 and npm.
+Requires Node.js 22 and pnpm 12.
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Useful checks:
 
 ```sh
-npm run lint
-npm run format:check
-npm run quality:browser
-npm run quality:lighthouse
+pnpm run lint
+pnpm run format:check
+pnpm run quality:browser
+pnpm run quality:lighthouse
 ```
 
-Build and preview the production output with `npm run build` and
-`npm run preview`.
+Build the production output with `pnpm run build`.
 
 ## Structure
 
