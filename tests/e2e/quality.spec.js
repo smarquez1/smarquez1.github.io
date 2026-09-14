@@ -243,7 +243,7 @@ const assertSemanticShell = async (page, label) => {
   const heroPositioning = page.locator('#hero-heading + p');
   if (
     (await heroPositioning.innerText()).replaceAll(/\s+/g, ' ').trim() !==
-    'I’m a code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work. From understanding the problem to shipping the solution.'
+    'I’m a code-first Senior Software / Product Engineer who builds and modernizes web products across Ruby on Rails, JavaScript, React, APIs, and full-stack systems.'
   ) {
     throw new Error(`${label} hero must use the approved period-separated positioning copy.`);
   }
@@ -570,7 +570,7 @@ const assertTimeline = async (page, label) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
 
   for (const text of [
-    'Works with founders and teachers to turn operational needs into role-based workflows across Ruby on Rails and Hotwire Native. Built recurring Stripe billing with customizable per-student plans.',
+    'Works with founders and teachers to turn operational needs into role-based workflows across Ruby on Rails and Hotwire Native. Ships product features, including a teacher-facing AI task generator and recurring Stripe billing with customizable per-student plans.',
     'Reduced affected page-load times by 20% to 80%, cut CircleCI feedback from approximately 40 minutes to 8 minutes, and led incremental Rails and Ruby modernization.',
   ]) {
     if (!(await timeline.getByText(text, { exact: true }).isVisible())) {
@@ -741,10 +741,10 @@ const assertProjectStory = async (page, label) => {
 
 const assertSocialMetadata = async (page, label) => {
   const expectedDescription =
-    'Code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work.';
+    'Code-first Senior Software / Product Engineer building and modernizing web products across Ruby on Rails, JavaScript, React, APIs, and full-stack systems.';
   const expectedImage = 'https://smarquez1.github.io/assets/social-preview-v4.png';
   const expectedAlt =
-    'Sergio Marquez, code-first Senior Product Engineer focused on Ruby on Rails, APIs, and full-stack product work.';
+    'Sergio Marquez, code-first Senior Software / Product Engineer building and modernizing web products across Ruby on Rails, JavaScript, React, APIs, and full-stack systems.';
 
   for (const [selector, expected] of [
     ['link[rel="canonical"]', 'https://smarquez1.github.io/'],
